@@ -53,3 +53,15 @@ h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
+
+#rsvp {
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+iframe {
+    width: 100%; /* Sorgt dafür, dass es auf dem Handy nicht über den Rand ragt */
+}
