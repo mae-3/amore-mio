@@ -7,7 +7,7 @@ body {
 }
 
 /* Hero-Sektion (Großes Bild/Hintergrund) */
-.hero hero {
+.hero {
     /* Setzt das Bild als Hintergrund */
     background-image: url('hochzeit.jpg');
     
