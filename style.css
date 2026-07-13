@@ -1,21 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
-</head>
-<body>
-<p class="p1">body {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fdf6f6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 50px;</p>
-<p class="p1">}</p>
-</body>
-</html>
+/* Grunddesign */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif; /* Wirkt edel und zeitlos */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hero-Sektion (Großes Bild/Hintergrund) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4; /* Hier später ein Bild einfügen */
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+.date {
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+/* Text-Bereich */
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.text-block {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
