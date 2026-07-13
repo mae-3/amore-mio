@@ -8,23 +8,9 @@ body {
 
 /* Hero-Sektion (Großes Bild/Hintergrund) */
 .hero {
-    /* Setzt das Bild als Hintergrund */
-    background-image: url('hochzeit.jpg');
-    
-    /* Sorgt dafür, dass das Bild den ganzen Bildschirm ausfüllt */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* Höhe auf vollen Bildschirm */
+    background-color: red;
     height: 100vh;
-    
-    /* Damit der Text auf dem Bild besser lesbar ist */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white; /* Text weiß machen, damit er auf dem Bild lesbar ist */
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Ein leichter Schatten hinter dem Text */
+    /* ... der Rest ... */
 }
 
 .hero-content h1 {
