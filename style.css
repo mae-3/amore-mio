@@ -119,3 +119,39 @@ iframe {
     background-color: white;
     color: black !important;
 }
+
+/* Fix für den Header: Box-Sizing verhindert das Abschneiden */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%; /* 5% Abstand statt fester Pixel */
+    position: absolute;
+    width: 90%;      /* Nimmt 100% minus Padding */
+    z-index: 10;
+}
+
+/* Aktiven Link unterstreichen (CSS-Trick für scroll-spy) */
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-links a {
+    color: white !important;
+    text-decoration: none;
+    margin-left: 25px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Unterstreichung bei aktivem Bereich (einfachste Methode) */
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* Sicherstellen, dass die Sektionen Platz haben */
+.content-section {
+    padding: 100px 20px;
+    min-height: 50vh;
+    text-align: center;
+}
