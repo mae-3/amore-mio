@@ -76,4 +76,46 @@ iframe {
     margin-top: 20px;
 }
 
+/* Navigation sauber ausrichten */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    position: absolute;
+    width: 100%;
+    z-index: 10; /* Damit das Menü vor dem Bild liegt */
+}
 
+.navbar .logo {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.nav-links a {
+    color: white !important; /* !important erzwingt Weiß */
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+}
+
+/* Button-Styling für beide RSVP-Buttons */
+.btn-rsvp, .btn-hero {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid white;
+    color: white !important;
+    text-decoration: none !important;
+    transition: 0.3s;
+}
+
+/* Zentraler RSVP Button unter der Schrift */
+.btn-hero {
+    margin-top: 20px;
+}
+
+/* Hover-Effekt */
+.btn-rsvp:hover, .btn-hero:hover {
+    background-color: white;
+    color: black !important;
+}
