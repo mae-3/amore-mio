@@ -9,7 +9,8 @@ body {
 /* Hero-Sektion (Großes Bild/Hintergrund) */
 .hero {
     /* Setzt das Bild als Hintergrund */
-    background-image: url('hochzeit.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url('hochzeit.jpg');
     
     /* Sorgt dafür, dass das Bild den ganzen Bildschirm ausfüllt */
     background-size: cover;
