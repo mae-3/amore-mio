@@ -1,140 +1,40 @@
 /* Grunddesign */
 body {
     margin: 0;
-    font-family: 'Georgia', serif;font-weight: 300; /* Wirkt edel und zeitlos */
+    font-family: 'Georgia', serif;
+    font-weight: 300;
     color: #333;
     line-height: 1.6;
-    
 }
 
-/* Hero-Sektion (Großes Bild/Hintergrund) */
+/* Hero-Sektion */
 .hero {
-    /* Setzt das Bild als Hintergrund */
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-        url('hochzeit.jpg');
-    
-    /* Sorgt dafür, dass das Bild den ganzen Bildschirm ausfüllt */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hochzeit.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* Höhe auf vollen Bildschirm */
     height: 100vh;
-    
-    /* Damit der Text auf dem Bild besser lesbar ist */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white; /* Text weiß machen, damit er auf dem Bild lesbar ist */
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Ein leichter Schatten hinter dem Text */
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    font-weight: normal;
-    margin: 0;
-}
-
-.date {
-    font-style: italic;
-    font-size: 1.5rem;
-}
-
-/* Text-Bereich */
-.container {
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 0 20px;
-}
-
-.text-block {
-    text-align: center;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#rsvp {
-    margin: 50px auto;
-    max-width: 600px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-}
-
-iframe {
-    width: 100%; /* Sorgt dafür, dass es auf dem Handy nicht über den Rand ragt */
-}
-
-.form-container {
-    background: #ffffff;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ein dezenter Schatten-Effekt */
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-/* Navigation sauber ausrichten */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 50px;
-    position: absolute;
-    width: 100%;
-    z-index: 10; /* Damit das Menü vor dem Bild liegt */
-}
-
-.navbar .logo {
-    font-size: 1.5rem;
     color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
-.nav-links a {
-    color: white !important; /* !important erzwingt Weiß */
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 1rem;
-}
-
-/* Button-Styling für beide RSVP-Buttons */
-.btn-rsvp, .btn-hero {
-    display: inline-block;
-    padding: 10px 30px;
-    border: 1px solid white;
-    color: white !important;
-    text-decoration: none !important;
-    transition: 0.3s;
-}
-
-/* Zentraler RSVP Button unter der Schrift */
-.btn-hero {
-    margin-top: 20px;
-}
-
-/* Hover-Effekt */
-.btn-rsvp:hover, .btn-hero:hover {
-    background-color: white;
-    color: black !important;
-}
-
-/* Fix für den Header: Box-Sizing verhindert das Abschneiden */
+/* Navigation - MUSS am Anfang stehen, um sie zu positionieren */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%; /* 5% Abstand statt fester Pixel */
-    position: absolute;
-    width: 90%;      /* Nimmt 100% minus Padding */
+    padding: 30px 5%;
+    position: absolute; /* Hebt das Menü über das Bild */
+    top: 0;
+    width: 90%;
     z-index: 10;
 }
 
-/* Aktiven Link unterstreichen (CSS-Trick für scroll-spy) */
-html {
-    scroll-behavior: smooth;
-}
+.navbar .logo { font-size: 1.5rem; color: white; }
 
 .nav-links a {
     color: white !important;
@@ -144,14 +44,30 @@ html {
     transition: 0.3s;
 }
 
-/* Unterstreichung bei aktivem Bereich (einfachste Methode) */
-.nav-links a:hover {
-    border-bottom: 2px solid white;
+.nav-links a:hover { border-bottom: 2px solid white; }
+
+/* Buttons */
+.btn-rsvp, .btn-hero {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid white;
+    color: white !important;
+    text-decoration: none !important;
+    transition: 0.3s;
 }
 
-/* Sicherstellen, dass die Sektionen Platz haben */
+.btn-rsvp:hover, .btn-hero:hover {
+    background-color: white;
+    color: black !important;
+}
+
+/* Inhalt */
 .content-section {
     padding: 100px 20px;
     min-height: 50vh;
     text-align: center;
 }
+
+/* Typografie */
+.hero-content h1 { font-size: 4rem; font-weight: normal; margin: 0; }
+.date { font-style: italic; font-size: 1.5rem; }
