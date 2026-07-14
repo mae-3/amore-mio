@@ -1,9 +1,10 @@
 /* Grunddesign */
 body {
     margin: 0;
-    font-family: 'Georgia', serif; /* Wirkt edel und zeitlos */
+    font-family: 'Georgia', serif;font-weight: 300; /* Wirkt edel und zeitlos */
     color: #333;
     line-height: 1.6;
+    
 }
 
 /* Hero-Sektion (Großes Bild/Hintergrund) */
@@ -74,3 +75,5 @@ iframe {
     border-radius: 10px;
     margin-top: 20px;
 }
+
+
