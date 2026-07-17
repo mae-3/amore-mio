@@ -7,38 +7,56 @@ body {
     line-height: 1.6;
 }
 
-/* Fester Header (Sticky Navigation beim Scrollen) */
+/* Navigation: Sticky & Layout */
 .navbar {
     display: flex;
-    justify-content: flex-end; /* Links ausgerichtet oder rechts, da kein Logo mehr da ist */
+    justify-content: space-between; /* Links, Mitte, Rechts verteilen */
     align-items: center;
     padding: 20px 5%;
-    position: fixed; /* Macht die Navigation permanent fixiert beim Scrollen */
+    position: fixed; /* Sticky beim Scrollen */
     top: 0;
-    left: 0;
     width: 90%;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.2); /* Ein leichter transparenter Hintergrund, damit man es auf Text gut lesen kann */
-    backdrop-filter: blur(5px); /* Moderner Milchglas-Effekt */
 }
 
+/* Zentrierung der Links */
 .nav-links {
+    flex: 1;
     display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap; /* Verhindert das Abschneiden auf kleinen Bildschirmen */
+    justify-content: center; /* Macht die Links mittig */
 }
 
 .nav-links a {
     color: white !important;
     text-decoration: none;
-    font-size: 0.95rem;
-    padding-bottom: 3px;
-    transition: 0.3s;
+    margin: 0 15px; /* Abstand zwischen den Links */
 }
 
-.nav-links a:hover {
-    border-bottom: 2px solid white;
+/* Button rechts */
+.nav-right {
+    flex: 0;
+}
+
+/* Button im Hero (mittig unter dem Text) */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert Button unter der Schrift */
+}
+
+.btn-hero {
+    margin-top: 20px;
+}
+
+/* Mobile Optimierung: Stapeln statt quetschen */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Alles untereinander auf dem Handy */
+        padding: 10px;
+    }
+    .nav-links {
+        margin-bottom: 10px;
+    }
 }
 
 /* Hero-Sektion */
@@ -95,22 +113,3 @@ body {
     font-size: clamp(1rem, 2vw, 1.5rem); 
 }
 
-/* Mobile Optimierung für kleinere Bildschirme */
-@media (max-width: 768px) {
-    .navbar {
-        justify-content: center; /* Zentriert die Navigation auf dem Handy */
-        padding: 10px;
-        width: 100%;
-    }
-    .nav-links {
-        justify-content: center;
-        gap: 10px;
-    }
-    .nav-links a {
-        font-size: 0.85rem;
-        margin-left: 0;
-    }
-    .btn-rsvp {
-        padding: 6px 15px; /* Macht den RSVP-Button oben kompakter auf dem Handy */
-    }
-}
