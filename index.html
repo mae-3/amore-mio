@@ -9,8 +9,7 @@
 <body>
 
     <header class="navbar" id="navbar">
-        <div class="logo">A&M</div>
-        <!-- Desktop Nav -->
+        <div class="logo">Amore Mio</div>
         <nav class="desktop-nav">
             <a href="#about">Wir</a>
             <a href="#ablauf">Ablauf</a>
@@ -18,7 +17,6 @@
             <a href="#faq">FAQ</a>
             <a href="rsvp.html" class="btn-nav">RSVP</a>
         </nav>
-        <!-- Mobile Burger -->
         <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
 
@@ -47,7 +45,40 @@
         </div>
     </section>
 
-    <!-- Inhalt folgt hier... -->
+    <!-- HIER KOMMT DER INHALT -->
+    <section id="about" class="content-section">
+        <h2>Just Married.</h2>
+        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
+    </section>
+
+    <section id="ablauf" class="content-section">
+        <h2>Der Tag</h2>
+        <div class="timeline">
+            <p><strong>16:00 Uhr</strong> – Ankommen & Anstoßen</p>
+            <p><strong>17:00 Uhr</strong> – Unsere freie Trauung</p>
+            <p><strong>18:00 Uhr</strong> – Get-Together & Cocktails</p>
+            <p><strong>19:30 Uhr</strong> – Dinner & gute Gespräche</p>
+            <p><strong>23:00 Uhr</strong> – Let’s Dance</p>
+        </div>
+    </section>
+
+    <section id="anreise" class="content-section">
+        <h2>Anreise & Tipps</h2>
+        <p>Da in Baden-Baden zur Weihnachtszeit viel los ist, sind Parkplätze rund um das Riefgursch rar. Wir empfehlen euch, das Auto stehen zu lassen. Damit ihr sicher nach Hause kommt, bieten wir euch einen Shuttle-Service an.</p>
+    </section>
+
+    <section id="faq" class="content-section">
+        <h2>Fragen & Antworten</h2>
+        <div class="faq-item">
+            <p><strong>Was soll ich anziehen?</strong><br>Kommt so, wie ihr euch wohlfühlt – festlich, schick und bereit für die Tanzfläche.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Geschenke?</strong><br>Da wir unseren Haushalt bereits komplett haben, freuen wir uns riesig über einen Beitrag für unsere kommenden Reise-Abenteuer.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Sind Kinder dabei?</strong><br>Wir haben uns für eine Feier entschieden, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen. Einzige Ausnahme sind unsere engsten Familienkinder.</p>
+        </div>
+    </section>
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
