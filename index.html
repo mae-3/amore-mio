@@ -2,32 +2,34 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anna & Maik | Hochzeit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna & Maik | 19. Dezember 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 1. NAVIGATION -->
+    <!-- NAVIGATION -->
     <header class="navbar">
-        <nav class="nav-links">
-            <a href="#hochzeit">Hochzeit</a>
-            <a href="#standort">Standort</a>
-            <a href="#location">Location</a>
-            <!-- Nur am Desktop sichtbar -->
-            <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
+        <div class="logo">Amore Mio</div>
+        <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <nav class="nav-overlay" id="navOverlay">
+            <a href="#about" onclick="toggleMenu()">Wir</a>
+            <a href="#ablauf" onclick="toggleMenu()">Ablauf</a>
+            <a href="#anreise" onclick="toggleMenu()">Anreise</a>
+            <a href="#faq" onclick="toggleMenu()">FAQ</a>
+            <a href="rsvp.html" class="btn-nav">RSVP</a>
         </nav>
     </header>
 
-    <!-- 2. HERO -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <h1>Anna & Maik</h1>
-            <p class="date">31. Juli 2026 · Baden-Baden</p>
+            <p class="date">19. Dezember 2026 · Baden-Baden</p>
         </div>
-     </section>
+    </section>
 
-    <!-- 3. COUNTDOWN & RSVP -->
+    <!-- COUNTDOWN -->
     <section id="countdown-section">
         <div class="countdown-grid">
             <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
@@ -35,51 +37,56 @@
             <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
             <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
         </div>
+    </section>
 
-        <!-- Dieser Button erscheint nur mobil -->
-        <div class="cta-container mobile-only">
-            <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
+    <!-- SEKTIONEN -->
+    <section id="about" class="content-section">
+        <h2>Just Married.</h2>
+        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
+    </section>
+
+    <section id="ablauf" class="content-section dark-bg">
+        <h2>Der Tag</h2>
+        <div class="timeline">
+            <p><strong>16:00 Uhr</strong> – Ankommen & Anstoßen</p>
+            <p><strong>17:00 Uhr</strong> – Unsere freie Trauung</p>
+            <p><strong>18:00 Uhr</strong> – Get-Together & Cocktails</p>
+            <p><strong>19:30 Uhr</strong> – Dinner & gute Gespräche</p>
+            <p><strong>23:00 Uhr</strong> – Let’s Dance</p>
         </div>
     </section>
 
-    <!-- 4. INHALTSBEREICHE -->
-    <section id="hochzeit" class="content-section">
-        <h2>Hochzeit</h2>
-        <p>Inhalt zur Hochzeit...</p>
+    <section id="anreise" class="content-section">
+        <h2>Anreise & Tipps</h2>
+        <p>Da in Baden-Baden zur Weihnachtszeit viel los ist, sind Parkplätze am Riefgursch rar. Wir empfehlen euch, das Auto stehen zu lassen und ein Taxi zu nehmen. Für den sicheren Heimweg ist unser Shuttle-Service organisiert.</p>
     </section>
 
-    <section id="standort" class="content-section">
-        <h2>Standort</h2>
-        <p>Inhalt zum Standort...</p>
+    <section id="faq" class="content-section">
+        <h2>Fragen & Antworten</h2>
+        <div class="faq-item">
+            <p><strong>Was soll ich anziehen?</strong><br>Kommt so, wie ihr euch wohlfühlt – festlich, schick und bereit für die Tanzfläche.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Geschenke?</strong><br>Da wir unseren Haushalt bereits komplett haben, freuen wir uns riesig über einen Beitrag für unsere kommenden Reise-Abenteuer.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Sind Kinder dabei?</strong><br>Wir haben uns für eine Feier entschieden, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen. Einzige Ausnahme sind unsere engsten Familienkinder.</p>
+        </div>
     </section>
 
-    <section id="location" class="content-section">
-        <h2>Location</h2>
-        <p>Inhalt zur Location...</p>
-    </section>
-
-    <!-- SKRIPTE -->
     <script>
+        function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
+        
+        // Countdown Logik
         const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
-        const timer = setInterval(function() {
+        setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
             document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown-section").innerHTML = "Wir feiern!";
-            }
         }, 1000);
-
-        window.addEventListener('scroll', function() {
-            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
     </script>
-
 </body>
 </html>
