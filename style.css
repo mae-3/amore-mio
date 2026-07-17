@@ -78,15 +78,42 @@ body {
     margin-top: 20px;
 }
 
-/* Mobile Optimierung: Stapeln statt quetschen */
+/* Sticky Nav Optimierung */
+.navbar {
+    display: flex;
+    justify-content: center; /* Links zentrieren */
+    align-items: center;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Volle Breite */
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+/* Durchsichtig beim Scrollen (Statt hartem Weiß) */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.7); /* Noch durchsichtiger */
+    backdrop-filter: blur(5px); /* Der edle "Frosted Glass" Effekt */
+}
+
+/* Desktop-Button verstecken/zeigen */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Alles untereinander auf dem Handy */
-        padding: 10px;
-    }
-    .nav-links {
-        margin-bottom: 10px;
-    }
+    .desktop-only { display: none; } /* Button aus der Nav verschwindet mobil */
+    .navbar { padding: 10px; }
+    .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+}
+
+/* Button-Styling: Harmonisch mittig */
+.btn-rsvp {
+    border: 1px solid white;
+    padding: 8px 20px;
+    color: white !important;
+}
+
+.navbar.scrolled .btn-rsvp {
+    border-color: #333;
+    color: #333 !important;
 }
 
 /* Hero-Sektion */
