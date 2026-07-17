@@ -9,17 +9,15 @@
 <body>
 
     <!-- 1. NAVIGATION -->
-    <header class="navbar">
-        <div class="nav-spacer"></div>
-        <nav class="nav-links">
-            <a href="#hochzeit">Hochzeit</a>
-            <a href="#standort">Standort</a>
-            <a href="#location">Location</a>
-        </nav>
-        <div class="nav-right">
-            <a href="rsvp.html" class="btn-rsvp">RSVP</a>
-        </div>
-    </header>
+   <header class="navbar">
+    <nav class="nav-links">
+        <a href="#hochzeit">Hochzeit</a>
+        <a href="#standort">Standort</a>
+        <a href="#location">Location</a>
+        <!-- Dieser Button wird per CSS nur auf Desktop angezeigt -->
+        <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
+    </nav>
+</header>
 
     <!-- 2. HERO (Das Bild muss hier sein!) -->
     <section class="hero">
@@ -50,6 +48,8 @@
         </div>
     </div>
     </section>
+
+    <a href="rsvp.html" class="btn-hero" style="display: block; margin: 20px auto; width: fit-content;">Jetzt zur Anmeldung</a>
 
     <!-- 3. INHALTSBEREICHE -->
     <section id="hochzeit" class="content-section">
