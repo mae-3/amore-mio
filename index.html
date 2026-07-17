@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna & Maik</title>
-    <!-- Einbinden einer eleganteren Schriftart -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,19 +34,26 @@
         <div class="hero-content">
             <h1>Anna & Maik</h1>
             <p class="date">19. Dezember 2026 · Baden-Baden</p>
+            <div class="countdown-grid">
+                <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
+                <div class="timer-box"><span id="hours" class="number"></span><span class="label">STD</span></div>
+                <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MIN</span></div>
+                <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEK</span></div>
+            </div>
+            <a href="rsvp.html" class="btn-hero">Jetzt anmelden</a>
         </div>
     </section>
 
-    <section id="countdown-section">
-        <div class="countdown-grid">
-            <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
-            <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
-            <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
-            <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
-        </div>
+    <section id="about" class="content-section">
+        <h2>Just Married.</h2>
+        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
     </section>
 
-    <!-- Inhalt ... -->
+    <section id="faq" class="content-section">
+        <h2>Fragen & Antworten</h2>
+        <details><summary>Was soll ich anziehen?</summary><p>Kommt festlich und schick, aber so, dass ihr die ganze Nacht tanzen könnt!</p></details>
+        <details><summary>Wie sieht es mit den Kindern aus?</summary><p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p></details>
+    </section>
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
