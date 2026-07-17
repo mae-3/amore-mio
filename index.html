@@ -9,49 +9,40 @@
 <body>
 
     <!-- 1. NAVIGATION -->
-   <header class="navbar">
-    <nav class="nav-links">
-        <a href="#hochzeit">Hochzeit</a>
-        <a href="#standort">Standort</a>
-        <a href="#location">Location</a>
-        <!-- Dieser Button wird per CSS nur auf Desktop angezeigt -->
-        <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
-    </nav>
-</header>
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="#hochzeit">Hochzeit</a>
+            <a href="#standort">Standort</a>
+            <a href="#location">Location</a>
+            <!-- Nur am Desktop sichtbar -->
+            <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
+        </nav>
+    </header>
 
-    <!-- 2. HERO (Das Bild muss hier sein!) -->
+    <!-- 2. HERO -->
     <section class="hero">
         <div class="hero-content">
             <h1>Anna & Maik</h1>
             <p class="date">31. Juli 2026 · Baden-Baden</p>
-            <a href="rsvp.html" class="btn-hero">RSVP</a>
         </div>
     </section>
 
+    <!-- 3. COUNTDOWN & RSVP -->
     <section id="countdown-section">
-    <div class="countdown-grid">
-        <div class="timer-box">
-            <span id="days" class="number"></span>
-            <span class="label">TAGE</span>
+        <div class="countdown-grid">
+            <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
+            <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
+            <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
+            <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
         </div>
-        <div class="timer-box">
-            <span id="hours" class="number"></span>
-            <span class="label">STUNDEN</span>
+        
+        <!-- Zentrale Anmeldung -->
+        <div class="cta-container">
+            <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
         </div>
-        <div class="timer-box">
-            <span id="minutes" class="number"></span>
-            <span class="label">MINUTEN</span>
-        </div>
-        <div class="timer-box">
-            <span id="seconds" class="number"></span>
-            <span class="label">SEKUNDEN</span>
-        </div>
-    </div>
     </section>
 
-    <a href="rsvp.html" class="btn-hero" style="display: block; margin: 20px auto; width: fit-content;">Jetzt zur Anmeldung</a>
-
-    <!-- 3. INHALTSBEREICHE -->
+    <!-- 4. INHALTSBEREICHE -->
     <section id="hochzeit" class="content-section">
         <h2>Hochzeit</h2>
         <p>Inhalt zur Hochzeit...</p>
@@ -67,40 +58,28 @@
         <p>Inhalt zur Location...</p>
     </section>
 
-<script>
-    const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
+    <!-- SKRIPTE -->
+    <script>
+        const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
 
-    const timer = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown-section").innerHTML = "Wir feiern!";
+            }
+        }, 1000);
 
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-
-        if (distance < 0) {
-            clearInterval(timer);
-            document.getElementById("countdown").innerHTML = "Wir feiern!";
-        }
-    }, 1000);
-</script>
-
-<script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-</script>
+        window.addEventListener('scroll', function() {
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 
 </body>
 </html>
