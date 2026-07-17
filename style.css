@@ -133,4 +133,15 @@ body {
     text-decoration: none;
     transition: 0.3s;
 }
-.btn-nav:hover { background: #D4AF37; color: white !important; }
+.btn-nav:hover { background: #D4AF37; color: white !important; 
+
+.content-section { 
+    padding: 60px 20px; 
+    text-align: center; 
+    max-width: 600px; 
+    margin: auto; 
+    border-bottom: 1px solid #e0d8c3; 
+}
+.content-section h2 { color: #D4AF37; font-size: 2rem; }
+.timeline { line-height: 2.5; }
+.faq-item { margin-top: 30px; }
