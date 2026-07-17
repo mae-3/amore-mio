@@ -45,7 +45,6 @@
         </div>
     </section>
 
-    <!-- HIER KOMMT DER INHALT -->
     <section id="about" class="content-section">
         <h2>Just Married.</h2>
         <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
@@ -62,27 +61,15 @@
         </div>
     </section>
 
-    <section id="anreise" class="content-section">
-        <h2>Anreise & Tipps</h2>
-        <p>Da in Baden-Baden zur Weihnachtszeit viel los ist, sind Parkplätze rund um das Riefgursch rar. Wir empfehlen euch, das Auto stehen zu lassen. Damit ihr sicher nach Hause kommt, bieten wir euch einen Shuttle-Service an.</p>
-    </section>
-
     <section id="faq" class="content-section">
         <h2>Fragen & Antworten</h2>
-        <div class="faq-item">
-            <p><strong>Was soll ich anziehen?</strong><br>Kommt so, wie ihr euch wohlfühlt – festlich, schick und bereit für die Tanzfläche.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>Geschenke?</strong><br>Da wir unseren Haushalt bereits komplett haben, freuen wir uns riesig über einen Beitrag für unsere kommenden Reise-Abenteuer.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>Sind Kinder dabei?</strong><br>Wir haben uns für eine Feier entschieden, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen. Einzige Ausnahme sind unsere engsten Familienkinder.</p>
-        </div>
+        <details><summary>Was soll ich anziehen?</summary><p>Kommt festlich und schick, aber so, dass ihr die ganze Nacht tanzen könnt!</p></details>
+        <details><summary>Wie sieht es mit den Kindern aus?</summary><p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p></details>
+        <details><summary>Wie komme ich nach Hause?</summary><p>Wir haben einen Shuttle-Service organisiert, der euch sicher zurückbringt. Parkplätze am Riefgursch sind rar, daher empfehlen wir, das Auto stehen zu lassen.</p></details>
     </section>
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
-        
         const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
         setInterval(function() {
             const distance = weddingDate - new Date().getTime();
