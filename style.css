@@ -1,119 +1,52 @@
 /* Grunddesign */
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    font-weight: 300;
-    color: #333;
-    line-height: 1.6;
-}
+body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; line-height: 1.6; }
 
-/* Navigation: Sticky & Layout */
-
-/* Navigation fixiert */
+/* Sticky Navigation */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 20px 5%;
+    padding: 20px;
     position: fixed;
     top: 0;
-    width: 90%;
+    width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* Hintergrund wird erst beim Scrollen aktiv (Klasse wird via JS gesetzt) */
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95); /* Weißer, leicht transparenter Hintergrund */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);      /* Dezenter Schatten */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
 }
 
-/* Links im normalen Zustand (über dem Bild) */
-.nav-links a {
-    color: white !important;
-    transition: color 0.3s ease;
-}
-
-/* Links, wenn gescrollt wurde (auf weißem Hintergrund) */
-.navbar.scrolled .nav-links a {
-    color: #333 !important; /* Farbe wechselt zu Dunkelgrau */
-}
-
-/* Auch den Button für gescrollten Zustand anpassen */
-.navbar.scrolled .btn-rsvp {
-    border-color: #333;
-    color: #333 !important;
-}
-.navbar.scrolled .btn-rsvp:hover {
-    background-color: #333;
-    color: white !important;
-}
-
-/* Zentrierung der Links */
-.nav-links {
-    flex: 1;
-    display: flex;
-    justify-content: center; /* Macht die Links mittig */
-}
+.nav-links { display: flex; align-items: center; }
 
 .nav-links a {
     color: white !important;
     text-decoration: none;
-    margin: 0 15px; /* Abstand zwischen den Links */
+    margin: 0 15px;
+    transition: 0.3s;
 }
 
-/* Button rechts */
-.nav-right {
-    flex: 0;
-}
+.navbar.scrolled .nav-links a { color: #333 !important; }
 
-/* Button im Hero (mittig unter dem Text) */
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Zentriert Button unter der Schrift */
-}
-
-.btn-hero {
-    margin-top: 20px;
-}
-
-/* Sticky Nav Optimierung */
-.navbar {
-    display: flex;
-    justify-content: center; /* Links zentrieren */
-    align-items: center;
-    padding: 15px 0;
-    position: fixed;
-    top: 0;
-    width: 100%; /* Volle Breite */
-    z-index: 1000;
-    transition: background 0.3s ease;
-}
-
-/* Durchsichtig beim Scrollen (Statt hartem Weiß) */
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.7); /* Noch durchsichtiger */
-    backdrop-filter: blur(5px); /* Der edle "Frosted Glass" Effekt */
-}
-
-/* Desktop-Button verstecken/zeigen */
-@media (max-width: 768px) {
-    .desktop-only { display: none; } /* Button aus der Nav verschwindet mobil */
-    .navbar { padding: 10px; }
-    .nav-links a { margin: 0 10px; font-size: 0.9rem; }
-}
-
-/* Button-Styling: Harmonisch mittig */
+/* Desktop-Button in der Nav */
 .btn-rsvp {
     border: 1px solid white;
     padding: 8px 20px;
     color: white !important;
+    text-decoration: none !important;
+    transition: 0.3s;
 }
 
-.navbar.scrolled .btn-rsvp {
-    border-color: #333;
-    color: #333 !important;
+.navbar.scrolled .btn-rsvp { border-color: #333; color: #333 !important; }
+
+/* Mobile Optimierung */
+@media (max-width: 768px) {
+    .desktop-only { display: none; }
+    .navbar { padding: 10px; }
+    .nav-links a { margin: 0 8px; font-size: 0.85rem; }
 }
 
 /* Hero-Sektion */
@@ -121,7 +54,6 @@ body {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hochzeit.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -130,93 +62,25 @@ body {
     color: white;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     text-align: center;
-    padding: 0 20px;
 }
 
-/* Buttons */
-.btn-rsvp, .btn-hero {
+/* Buttons & Countdown */
+.btn-hero {
     display: inline-block;
     padding: 10px 25px;
     border: 1px solid white;
     color: white !important;
     text-decoration: none !important;
     transition: 0.3s;
-}
-
-.btn-hero {
     margin-top: 20px;
 }
 
-.btn-rsvp:hover, .btn-hero:hover {
-    background-color: white;
-    color: black !important;
-}
-
-/* Inhalt */
-.content-section {
-    padding: 100px 20px;
-    min-height: 50vh;
-    text-align: center;
-}
-
-/* Typografie */
-.hero-content h1 { 
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Passt sich automatisch der Bildschirmgröße an */
-    font-weight: normal; 
-    margin: 0; 
-}
-.date { 
-    font-style: italic; 
-    font-size: clamp(1rem, 2vw, 1.5rem); 
-}
-
-#countdown {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    color: white;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-    font-weight: 300;
-    letter-spacing: 2px;
-}
-
-#countdown span {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-#countdown-section {
-    padding: 60px 20px;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.countdown-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-.timer-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.number {
-    font-size: 4rem;
-    font-family: 'Georgia', serif;
-    color: #c5a059; /* Edler Gold-Ton */
-    line-height: 1;
-}
-
-.label {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    margin-top: 10px;
-    color: #333;
-}
+#countdown-section { padding: 60px 20px; background-color: #ffffff; text-align: center; }
+.countdown-grid { display: flex; justify-content: center; gap: 30px; }
+.number { font-size: 3.5rem; color: #c5a059; line-height: 1; }
+.label { font-size: 0.8rem; letter-spacing: 2px; margin-top: 5px; color: #333; }
 
 @media (max-width: 600px) {
-    .countdown-grid { gap: 15px; }
-    .number { font-size: 2.5rem; }
+    .countdown-grid { gap: 10px; }
+    .number { font-size: 2rem; }
 }
