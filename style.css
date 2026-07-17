@@ -33,7 +33,6 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 
 .navbar.scrolled .nav-links a { color: #333 !important; text-shadow: none; }
 
-/* Desktop-Button in der Nav */
 .btn-rsvp {
     border: 1px solid white;
     padding: 8px 20px;
@@ -44,32 +43,22 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 
 .navbar.scrolled .btn-rsvp { border-color: #333; color: #333 !important; }
 
-/* Hero-Sektion */
+/* --- Hero-Sektion --- */
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hochzeit.jpg');
     background-size: cover;
     background-position: center;
-    /* ÄNDERUNG: Statt 100vh nutzen wir einen kleineren Wert mobil */
-    height: 75vh; 
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 15vh;
+    padding-top: 25vh;
     align-items: center;
     color: white;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     text-align: center;
     width: 100%;
-    overflow: hidden;
     position: relative;
-}
-
-/* Spezielle Anpassung für sehr kleine Bildschirme */
-@media (max-width: 600px) {
-    .hero {
-        height: 60vh; /* Noch kürzer, damit der Timer drunter passt */
-        padding-top: 10vh;
-    }
 }
 
 .hero-content h1 {
@@ -103,20 +92,23 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 .btn-hero:hover { background-color: #a8874a; color: white !important; }
 
 #countdown-section { 
-    padding: 20px 10px; /* Reduziert von 40px auf 20px */
+    padding: 80px 20px; 
     background-color: #ffffff; 
     text-align: center; 
 }
+
 .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; max-width: 500px; margin: 0 auto; }
 .number { font-size: 2rem; color: #c5a059; display: block; }
 .label { font-size: 0.6rem; letter-spacing: 1px; }
 
 .cta-container { text-align: center; padding: 20px 0 40px 0; }
 
-/* --- Mobile Optimierung --- */
+/* --- Mobile Optimierung (Zentrale Steuerung) --- */
 .mobile-only { display: none; }
 
 @media (max-width: 768px) {
+    .hero { height: 60vh; padding-top: 10vh; }
+    #countdown-section { padding: 40px 10px; }
     .mobile-only { display: block; }
     .desktop-only { display: none; }
     .navbar { padding: 10px; }
