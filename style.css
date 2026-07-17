@@ -14,12 +14,12 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 .desktop-nav a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
 /* --- Hero Sektion --- */
-/* 1. Bildschwerpunkt verschieben: center 10% schiebt das Bild weit nach unten, Gesichter kommen nach oben */
+/* 1. Bildschwerpunkt: Wir gehen auf 5%, damit das Bild weiter nach unten rutscht und eure Gesichter nach oben wandern */
 .hero { 
     height: 100vh; 
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('hochzeit.jpg'); 
     background-size: cover; 
-    background-position: center 10%; /* Hier habe ich von 20% auf 10% angepasst */
+    background-position: center 5%; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -27,11 +27,11 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
     text-align: center; 
 }
 
-/* 2. Textblock weiter nach unten schieben */
+/* 2. Textblock weiter nach unten schieben: Wir erhöhen den Wert auf 350px */
 .hero-content { 
     width: 90%; 
     max-width: 500px; 
-    margin-top: 250px; /* Hier habe ich von 150px auf 250px erhöht */
+    margin-top: 350px; 
 }
 .hero h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); }
 .date { font-size: 1.0rem; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.9); margin-bottom: 20px; }
