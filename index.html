@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna & Maik | 19. Dezember 2026</title>
+    <title>Anna & Maik</title>
+    <!-- Einbinden einer eleganteren Schriftart -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -45,39 +47,21 @@
         </div>
     </section>
 
-    <section id="about" class="content-section">
-        <h2>Just Married.</h2>
-        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
-    </section>
-
-    <section id="ablauf" class="content-section">
-        <h2>Der Tag</h2>
-        <div class="timeline">
-            <p><strong>16:00 Uhr</strong> – Ankommen & Anstoßen</p>
-            <p><strong>17:00 Uhr</strong> – Unsere freie Trauung</p>
-            <p><strong>18:00 Uhr</strong> – Get-Together & Cocktails</p>
-            <p><strong>19:30 Uhr</strong> – Dinner & gute Gespräche</p>
-            <p><strong>23:00 Uhr</strong> – Let’s Dance</p>
-        </div>
-    </section>
-
-    <section id="faq" class="content-section">
-        <h2>Fragen & Antworten</h2>
-        <details><summary>Was soll ich anziehen?</summary><p>Kommt festlich und schick, aber so, dass ihr die ganze Nacht tanzen könnt!</p></details>
-        <details><summary>Wie sieht es mit den Kindern aus?</summary><p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p></details>
-        <details><summary>Wie komme ich nach Hause?</summary><p>Wir haben einen Shuttle-Service organisiert, der euch sicher zurückbringt. Parkplätze am Riefgursch sind rar, daher empfehlen wir, das Auto stehen zu lassen.</p></details>
-    </section>
+    <!-- Inhalt ... -->
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
         const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
-        setInterval(function() {
-            const distance = weddingDate - new Date().getTime();
-            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
-        }, 1000);
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
