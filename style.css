@@ -1,7 +1,7 @@
-/* Grunddesign */
+/* --- Grunddesign --- */
 body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; line-height: 1.6; }
 
-/* Sticky Navigation */
+/* --- Sticky Navigation --- */
 .navbar {
     display: flex;
     justify-content: center;
@@ -27,9 +27,11 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     text-decoration: none;
     margin: 0 15px;
     transition: 0.3s;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-.navbar.scrolled .nav-links a { color: #333 !important; }
+.navbar.scrolled .nav-links a { color: #333 !important; text-shadow: none; }
 
 /* Desktop-Button in der Nav */
 .btn-rsvp {
@@ -42,105 +44,29 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 
 .navbar.scrolled .btn-rsvp { border-color: #333; color: #333 !important; }
 
-/* Mobile Optimierung */
-@media (max-width: 768px) {
-    .desktop-only { display: none; }
-    .navbar { padding: 10px; }
-    .nav-links a { margin: 0 8px; font-size: 0.85rem; }
-}
-
-/* Hero-Sektion */
+/* --- Hero Sektion --- */
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hochzeit.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Text nach oben */
+    padding-top: 15vh;
     align-items: center;
     color: white;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     text-align: center;
-    width: 100%;
-    overflow: hidden; /* WICHTIG: Verhindert, dass das Bild über den Rand ragt */
+    overflow: hidden;
     position: relative;
 }
 
-/* Buttons & Countdown */
-.btn-hero {
-    display: inline-block;
-    padding: 10px 25px;
-    border: 1px solid white;
-    color: white !important;
-    text-decoration: none !important;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-
-/* Countdown Sektion Optimierung */
-#countdown-section { 
-    padding: 40px 10px; 
-    background-color: #ffffff; 
-    text-align: center; 
-    overflow: hidden; /* Verhindert horizontales Scrollen */
-}
-
-.countdown-grid { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); /* 4 gleich große Spalten */
-    gap: 5px; /* Kleinerer Abstand */
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.number { 
-    font-size: 2rem; /* Kleiner auf dem Handy */
-    color: #c5a059; 
-    display: block;
-}
-
-.label { 
-    font-size: 0.6rem; /* Kleiner auf dem Handy */
-    letter-spacing: 1px; 
-}
-
-.cta-container {
-    text-align: center;
-    padding: 20px 0 40px 0; /* Abstand nach oben und unten */
-}
-
-/* Optional: Button-Stil anpassen, damit er sich abhebt */
-.btn-hero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    border: none;
-    background-color: #c5a059; /* Das Gold */
-    color: white !important;
-    text-decoration: none !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.btn-hero:hover {
-    background-color: #a8874a; /* Ein etwas dunkleres Gold für den Hover-Effekt */
-    color: white !important;
-}
-
-/* --- Hero & Text-Optimierung --- */
-.hero {
-    /* Text nach oben verschieben, damit Gesichter frei sind */
-    justify-content: flex-start;
-    padding-top: 15vh;
-}
-
 .hero-content h1 {
-    font-size: clamp(3rem, 8vw, 5.5rem); /* Noch größer */
+    font-size: clamp(3rem, 8vw, 5.5rem);
     font-weight: 500;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.7); /* Stärkerer Schatten */
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
 .date {
@@ -149,17 +75,36 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
 }
 
-/* --- Navigations-Lesbarkeit --- */
-.nav-links a {
+/* --- Buttons & Countdown --- */
+.btn-hero {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    background-color: #c5a059;
     color: white !important;
-    font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Schatten für Lesbarkeit */
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    transition: 0.3s;
 }
 
-/* --- Sichtbarkeit des CTA-Buttons --- */
+.btn-hero:hover { background-color: #a8874a; color: white !important; }
+
+#countdown-section { padding: 40px 10px; background-color: #ffffff; text-align: center; overflow: hidden; }
+.countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; max-width: 500px; margin: 0 auto; }
+.number { font-size: 2rem; color: #c5a059; display: block; }
+.label { font-size: 0.6rem; letter-spacing: 1px; }
+
+.cta-container { text-align: center; padding: 20px 0 40px 0; }
+
+/* --- Mobile Optimierung --- */
 .mobile-only { display: none; }
 
 @media (max-width: 768px) {
-    .mobile-only { display: block; } /* Button nur mobil zeigen */
-    .desktop-only { display: none; } /* RSVP in Nav mobil ausblenden */
+    .mobile-only { display: block; }
+    .desktop-only { display: none; }
+    .navbar { padding: 10px; }
+    .nav-links a { margin: 0 8px; font-size: 0.85rem; }
 }
