@@ -75,14 +75,31 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     margin-top: 20px;
 }
 
-#countdown-section { padding: 60px 20px; background-color: #ffffff; text-align: center; }
-.countdown-grid { display: flex; justify-content: center; gap: 30px; }
-.number { font-size: 3.5rem; color: #c5a059; line-height: 1; }
-.label { font-size: 0.8rem; letter-spacing: 2px; margin-top: 5px; color: #333; }
+/* Countdown Sektion Optimierung */
+#countdown-section { 
+    padding: 40px 10px; 
+    background-color: #ffffff; 
+    text-align: center; 
+    overflow: hidden; /* Verhindert horizontales Scrollen */
+}
 
-@media (max-width: 600px) {
-    .countdown-grid { gap: 10px; }
-    .number { font-size: 2rem; }
+.countdown-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* 4 gleich große Spalten */
+    gap: 5px; /* Kleinerer Abstand */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.number { 
+    font-size: 2rem; /* Kleiner auf dem Handy */
+    color: #c5a059; 
+    display: block;
+}
+
+.label { 
+    font-size: 0.6rem; /* Kleiner auf dem Handy */
+    letter-spacing: 1px; 
 }
 
 .cta-container {
