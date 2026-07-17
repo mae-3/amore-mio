@@ -113,3 +113,16 @@ body {
     font-size: clamp(1rem, 2vw, 1.5rem); 
 }
 
+#countdown {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+#countdown span {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
