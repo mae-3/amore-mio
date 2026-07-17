@@ -8,20 +8,29 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <header class="navbar">
-        <div class="logo">Amore Mio</div>
-        <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-        <nav class="nav-overlay" id="navOverlay">
-            <a href="#about" onclick="toggleMenu()">Wir</a>
-            <a href="#ablauf" onclick="toggleMenu()">Ablauf</a>
-            <a href="#anreise" onclick="toggleMenu()">Anreise</a>
-            <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <header class="navbar" id="navbar">
+        <div class="logo">A&M</div>
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav">
+            <a href="#about">Wir</a>
+            <a href="#ablauf">Ablauf</a>
+            <a href="#anreise">Anreise</a>
+            <a href="#faq">FAQ</a>
             <a href="rsvp.html" class="btn-nav">RSVP</a>
         </nav>
+        <!-- Mobile Burger -->
+        <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
 
-    <!-- HERO -->
+    <div class="nav-overlay" id="navOverlay">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <a href="#about" onclick="toggleMenu()">Wir</a>
+        <a href="#ablauf" onclick="toggleMenu()">Ablauf</a>
+        <a href="#anreise" onclick="toggleMenu()">Anreise</a>
+        <a href="#faq" onclick="toggleMenu()">FAQ</a>
+        <a href="rsvp.html" onclick="toggleMenu()">RSVP</a>
+    </div>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Anna & Maik</h1>
@@ -29,7 +38,6 @@
         </div>
     </section>
 
-    <!-- COUNTDOWN -->
     <section id="countdown-section">
         <div class="countdown-grid">
             <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
@@ -39,49 +47,14 @@
         </div>
     </section>
 
-    <!-- SEKTIONEN -->
-    <section id="about" class="content-section">
-        <h2>Just Married.</h2>
-        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
-    </section>
-
-    <section id="ablauf" class="content-section dark-bg">
-        <h2>Der Tag</h2>
-        <div class="timeline">
-            <p><strong>16:00 Uhr</strong> – Ankommen & Anstoßen</p>
-            <p><strong>17:00 Uhr</strong> – Unsere freie Trauung</p>
-            <p><strong>18:00 Uhr</strong> – Get-Together & Cocktails</p>
-            <p><strong>19:30 Uhr</strong> – Dinner & gute Gespräche</p>
-            <p><strong>23:00 Uhr</strong> – Let’s Dance</p>
-        </div>
-    </section>
-
-    <section id="anreise" class="content-section">
-        <h2>Anreise & Tipps</h2>
-        <p>Da in Baden-Baden zur Weihnachtszeit viel los ist, sind Parkplätze am Riefgursch rar. Wir empfehlen euch, das Auto stehen zu lassen und ein Taxi zu nehmen. Für den sicheren Heimweg ist unser Shuttle-Service organisiert.</p>
-    </section>
-
-    <section id="faq" class="content-section">
-        <h2>Fragen & Antworten</h2>
-        <div class="faq-item">
-            <p><strong>Was soll ich anziehen?</strong><br>Kommt so, wie ihr euch wohlfühlt – festlich, schick und bereit für die Tanzfläche.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>Geschenke?</strong><br>Da wir unseren Haushalt bereits komplett haben, freuen wir uns riesig über einen Beitrag für unsere kommenden Reise-Abenteuer.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>Sind Kinder dabei?</strong><br>Wir haben uns für eine Feier entschieden, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen. Einzige Ausnahme sind unsere engsten Familienkinder.</p>
-        </div>
-    </section>
+    <!-- Inhalt folgt hier... -->
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
         
-        // Countdown Logik
         const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
         setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+            const distance = weddingDate - new Date().getTime();
             document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
