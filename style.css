@@ -7,6 +7,40 @@ body {
     line-height: 1.6;
 }
 
+/* Fester Header (Sticky Navigation beim Scrollen) */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Links ausgerichtet oder rechts, da kein Logo mehr da ist */
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed; /* Macht die Navigation permanent fixiert beim Scrollen */
+    top: 0;
+    left: 0;
+    width: 90%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.2); /* Ein leichter transparenter Hintergrund, damit man es auf Text gut lesen kann */
+    backdrop-filter: blur(5px); /* Moderner Milchglas-Effekt */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap; /* Verhindert das Abschneiden auf kleinen Bildschirmen */
+}
+
+.nav-links a {
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding-bottom: 3px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
+
 /* Hero-Sektion */
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hochzeit.jpg');
@@ -20,40 +54,22 @@ body {
     align-items: center;
     color: white;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-align: center;
+    padding: 0 20px;
 }
-
-/* Navigation - MUSS am Anfang stehen, um sie zu positionieren */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 5%;
-    position: absolute; /* Hebt das Menü über das Bild */
-    top: 0;
-    width: 90%;
-    z-index: 10;
-}
-
-.navbar .logo { font-size: 1.5rem; color: white; }
-
-.nav-links a {
-    color: white !important;
-    text-decoration: none;
-    margin-left: 25px;
-    padding-bottom: 5px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover { border-bottom: 2px solid white; }
 
 /* Buttons */
 .btn-rsvp, .btn-hero {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px 25px;
     border: 1px solid white;
     color: white !important;
     text-decoration: none !important;
     transition: 0.3s;
+}
+
+.btn-hero {
+    margin-top: 20px;
 }
 
 .btn-rsvp:hover, .btn-hero:hover {
@@ -69,5 +85,32 @@ body {
 }
 
 /* Typografie */
-.hero-content h1 { font-size: 4rem; font-weight: normal; margin: 0; }
-.date { font-style: italic; font-size: 1.5rem; }
+.hero-content h1 { 
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Passt sich automatisch der Bildschirmgröße an */
+    font-weight: normal; 
+    margin: 0; 
+}
+.date { 
+    font-style: italic; 
+    font-size: clamp(1rem, 2vw, 1.5rem); 
+}
+
+/* Mobile Optimierung für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center; /* Zentriert die Navigation auf dem Handy */
+        padding: 10px;
+        width: 100%;
+    }
+    .nav-links {
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-links a {
+        font-size: 0.85rem;
+        margin-left: 0;
+    }
+    .btn-rsvp {
+        padding: 6px 15px; /* Macht den RSVP-Button oben kompakter auf dem Handy */
+    }
+}
