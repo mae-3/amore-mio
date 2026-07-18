@@ -20,10 +20,9 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 
 /* --- Hero Sektion --- */
 /* Hero Grundgerüst */
-/* Hero-Bereich: Bild-Fokus optimiert */
+/* Hero-Bereich */
 .hero { 
-    height: 80vh; /* Etwas kürzer für mehr Übersicht */
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('hochzeit.jpg'); 
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('hochzeit.jpg'); 
     background-size: cover; 
     display: flex; 
     align-items: center; 
@@ -32,25 +31,27 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
     text-align: center; 
 }
 
-/* Desktop: Fokus zentriert, damit Gesichter sichtbar sind */
+/* Desktop: Höhe reduziert, Fokus tiefer damit Gesichter besser zu sehen sind */
 @media (min-width: 769px) {
-    .hero { background-position: center 25%; }
+    .hero { height: 75vh; background-position: center 35%; }
 }
 
-/* Mobile: Fokus höher, damit Köpfe oben sind */
+/* Mobile: Höhe reduziert, Fokus extrem hoch für Gesichter, Text rutscht unter Gesichter */
 @media (max-width: 768px) {
-    .hero { background-position: center 15%; }
+    .hero { height: 70vh; background-position: center 5%; }
 }
 
-/* Countdown Sektion: Ohne abgerundete Ecken, mit Kästchen */
+/* Text-Container im Bild */
+.hero-content { 
+    width: 90%; 
+    padding-top: 100px; /* Schiebt Text nach unten unter die Gesichter */
+}
+
+/* Countdown-Sektion nach oben ziehen */
 #countdown-section { 
-    padding: 40px 20px; 
+    padding: 20px 20px 40px 20px; /* Oben kürzer, damit es zum Bild schließt */
     background: #fdfbf7; 
     text-align: center; 
-    position: relative;
-    margin-top: 0; /* Keine Überlappung mehr */
-    border-radius: 0; /* Ecken eckig */
-    box-shadow: none;
 }
 
 .countdown-grid { 
