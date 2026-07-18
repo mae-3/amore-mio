@@ -20,39 +20,46 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 
 /* --- Hero Sektion --- */
 /* Hero Grundgerüst */
-/* Hero optimiert */
+/* Hero: Jetzt zentriert, da weniger Inhalt */
 .hero { 
-    height: 100vh; 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('hochzeit.jpg'); 
+    height: 90vh; 
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('hochzeit.jpg'); 
     background-size: cover; 
+    background-position: center 10%; 
     display: flex; 
-    align-items: center; 
+    align-items: center; /* Zentriert Namen und Datum perfekt im Bild */
     justify-content: center; 
     color: #fff; 
     text-align: center; 
 }
+.hero-content { width: 90%; }
+.hero h1 { font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); }
 
-/* Desktop: Fokus leicht nach unten, damit Köpfe nicht zu weit oben sind */
-@media (min-width: 769px) {
-    .hero { background-position: center 30%; }
-    .hero-content { margin-top: 150px; }
+/* Countdown Sektion (separat unter dem Bild) */
+#countdown-section { 
+    padding: 60px 20px; 
+    background: #fdfbf7; 
+    text-align: center; 
 }
-
-/* Mobile: Fokus extrem nach oben, damit Gesichter nach oben wandern */
-@media (max-width: 768px) {
-    .hero { background-position: center 5%; } 
-    .hero-content { margin-top: 300px; } /* Schiebt Text noch weiter runter */
+.countdown-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    margin-bottom: 30px; 
 }
+.number { font-size: 2rem; color: #C5A07E; font-family: 'Playfair Display', serif; display: block; }
+.label { font-size: 0.6rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
 
-.hero-content { width: 90%; max-width: 600px; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); }
-.date { font-size: 1.0rem; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.9); margin-bottom: 20px; }
-
-/* --- Countdown & Button --- */
-.countdown-grid { display: flex; justify-content: center; gap: 20px; margin: 20px 0; background: transparent; padding: 10px; }
-.number { font-size: 1.5rem; color: #F4E4BC; font-family: 'Playfair Display', serif; display: block; text-shadow: 1px 1px 2px black; }
-.label { font-size: 0.5rem; color: #ddd; letter-spacing: 2px; }
-.btn-hero { background: #C5A07E; color: white; padding: 12px 25px; text-decoration: none; display: inline-block; border: 1px solid #F4E4BC; border-radius: 2px; }
+/* Button in der Sektion */
+.btn-hero { 
+    background: #C5A07E; 
+    color: white; 
+    padding: 15px 40px; 
+    text-decoration: none; 
+    display: inline-block; 
+    border-radius: 2px; 
+    font-size: 1rem;
+}
 
 /* --- Parallax Sektionen --- */
 .content-section { padding: 100px 20px; text-align: center; background-image: url('hintergrund_ring.jpg'); background-attachment: fixed; background-size: cover; position: relative; }
