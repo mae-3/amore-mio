@@ -31,9 +31,17 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
     text-align: center; 
 }
 
-/* Desktop: Höhe reduziert, Fokus tiefer damit Gesichter besser zu sehen sind */
+/* --- Desktop Anpassungen --- */
 @media (min-width: 769px) {
-    .hero { height: 75vh; background-position: center 35%; }
+    .hero { 
+        height: 60vh; /* Verkleinert das Bild-Hero, zeigt mehr Bildinhalt */
+        background-position: center 40%; /* Etwas tiefer, damit die Gesichter komplett im Bild sind */
+    }
+    
+    #countdown-section { 
+        margin-top: -50px; /* Zieht den Timer deutlich nach oben über den unteren Bildrand */
+        padding-top: 20px; 
+    }
 }
 
 /* Mobile: Höhe reduziert, Fokus extrem hoch für Gesichter, Text rutscht unter Gesichter */
