@@ -34,8 +34,8 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 /* --- Desktop Anpassungen --- */
 @media (min-width: 769px) {
     .hero { 
-        height: 60vh; /* Verkleinert das Bild-Hero, zeigt mehr Bildinhalt */
-        background-position: center 40%; /* Etwas tiefer, damit die Gesichter komplett im Bild sind */
+        height: 80vh; /* Verkleinert das Bild-Hero, zeigt mehr Bildinhalt */
+        background-position: center 60%; /* Etwas tiefer, damit die Gesichter komplett im Bild sind */
     }
     
     #countdown-section { 
