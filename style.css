@@ -20,42 +20,68 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 
 /* --- Hero Sektion --- */
 /* Hero Grundgerüst */
-/* Hero: Jetzt zentriert, da weniger Inhalt */
+/* Hero-Bereich: Bild-Fokus optimiert */
 .hero { 
-    height: 90vh; 
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('hochzeit.jpg'); 
+    height: 80vh; /* Etwas kürzer für mehr Übersicht */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('hochzeit.jpg'); 
     background-size: cover; 
-    background-position: center 10%; 
     display: flex; 
-    align-items: center; /* Zentriert Namen und Datum perfekt im Bild */
+    align-items: center; 
     justify-content: center; 
     color: #fff; 
     text-align: center; 
 }
-.hero-content { width: 90%; }
-.hero h1 { font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); }
 
-/* --- Countdown Sektion (Kombiniert) --- */
+/* Desktop: Fokus zentriert, damit Gesichter sichtbar sind */
+@media (min-width: 769px) {
+    .hero { background-position: center 25%; }
+}
+
+/* Mobile: Fokus höher, damit Köpfe oben sind */
+@media (max-width: 768px) {
+    .hero { background-position: center 15%; }
+}
+
+/* Countdown Sektion: Ohne abgerundete Ecken, mit Kästchen */
 #countdown-section { 
-    padding: 60px 20px; 
+    padding: 40px 20px; 
     background: #fdfbf7; 
     text-align: center; 
     position: relative;
-    margin-top: -30px; /* Lässt die Sektion leicht über das Bild "greifen" */
-    border-radius: 30px 30px 0 0; 
-    box-shadow: 0 -10px 20px rgba(0,0,0,0.05); 
-    z-index: 10;
+    margin-top: 0; /* Keine Überlappung mehr */
+    border-radius: 0; /* Ecken eckig */
+    box-shadow: none;
 }
 
 .countdown-grid { 
     display: flex; 
     justify-content: center; 
-    gap: 30px; 
+    gap: 15px; 
     margin-bottom: 30px; 
 }
 
-.number { font-size: 2rem; color: #C5A07E; font-family: 'Playfair Display', serif; display: block; }
-.label { font-size: 0.6rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
+/* Kästchen-Design für Timer */
+.timer-box { 
+    background: #fff; 
+    border: 1px solid #e8dcc4; 
+    padding: 15px 10px; 
+    min-width: 60px; 
+    border-radius: 4px; 
+}
+
+.number { 
+    font-size: 1.8rem; /* Größerer Timer */
+    color: #C5A07E; 
+    font-family: 'Playfair Display', serif; 
+    display: block; 
+}
+
+.label { 
+    font-size: 0.5rem; 
+    color: #aaa; 
+    letter-spacing: 1px; 
+    display: block; 
+}
 
 /* Button in der Sektion */
 .btn-hero { 
