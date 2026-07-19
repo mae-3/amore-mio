@@ -1,3 +1,21 @@
+#video-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #fdfbf7;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Sorgt dafür, dass das Video den Bildschirm voll ausfüllt */
+}
+
 /* --- Grunddesign --- */
 body { margin: 0; font-family: 'Montserrat', sans-serif; color: #5a5a5a; background: #fdfbf7; }
 h1, h2, .logo { font-family: 'Playfair Display', serif; }
