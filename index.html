@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="video-overlay">
+    <video id="intro-video" autoplay muted playsinline onended="hideOverlay()">
+        <source src="umschlag-animation.mp4" type="video/mp4">
+    </video>
+</div>
 
+<script>
+    function hideOverlay() {
+        document.getElementById('video-overlay').style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById('video-overlay').style.display = "none";
+        }, 1000); // Wartet 1 Sekunde für den sanften Übergang
+    }
+</script>
 <header class="navbar" id="navbar">
     <div class="logo">Amore Mio</div>
     <nav class="desktop-nav">
