@@ -8,18 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="video-overlay">
-    <video id="intro-video" autoplay muted playsinline onended="hideOverlay()">
-        <source src="umschlag-animation.mp4" type="video/mp4">
-    </video>
+<div id="video-overlay" onclick="startExperience()">
+    <div class="overlay-text">Bitte klicken, um die Einladung zu öffnen</div>
+    <video id="intro-video" playsinline muted>
+    <source src="umschlag-animation.mp4" type="video/mp4">
+</video>
 </div>
 
 <script>
-    function hideOverlay() {
-        document.getElementById('video-overlay').style.opacity = "0";
-        setTimeout(() => {
-            document.getElementById('video-overlay').style.display = "none";
-        }, 1000); // Wartet 1 Sekunde für den sanften Übergang
+    function startExperience() {
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+        
+        // Video abspielen
+        video.play();
+        
+        // Text ausblenden nach Klick
+        overlay.querySelector('.overlay-text').style.display = "none";
+        
+        // Nach Ende des Videos das Overlay ausblenden
+        video.onended = () => {
+            overlay.style.opacity = "0";
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 1000);
+        };
     }
 </script>
 <header class="navbar" id="navbar">
