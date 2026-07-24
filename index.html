@@ -9,9 +9,9 @@
 </head>
 <body>
 <div id="video-overlay" onclick="startExperience()">
-    <video id="intro-video" playsinline muted poster="vorschaubild.jpg">>
-    <source src="umschlag-animation.mp4" type="video/mp4">
-</video>
+    <video id="intro-video" playsinline muted poster="vorschaubild.jpg">
+        <source src="umschlag-animation.mp4" type="video/mp4">
+    </video>
 </div>
 
 <script>
@@ -76,11 +76,50 @@
         <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
     </section>
 
-    <section id="faq" class="content-section">
-        <h2>Fragen & Antworten</h2>
-        <details><summary>Was soll ich anziehen?</summary><p>Kommt festlich und schick, aber so, dass ihr die ganze Nacht tanzen könnt!</p></details>
-        <details><summary>Wie sieht es mit den Kindern aus?</summary><p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p></details>
-    </section>
+    <!-- FAQ Sektion -->
+<section id="faq" class="content-section">
+    <h2>Fragen & Antworten</h2>
+    
+    <details>
+        <summary>Wann und wo finden Trauung und Feier statt?</summary>
+        <p>Wir feiern am 19. Dezember 2026 in Baden-Baden. Die genauen Uhrzeiten und Location-Adresen findet ihr zeitnah hier oder in eurer persönlichen Einladung.</p>
+    </details>
+
+    <details>
+        <summary>Gibt es einen Dresscode?</summary>
+        <p>Wir wünschen uns von euch festliche und schicke Abendgarderobe. Kommt in dem, worin ihr euch wohlfühlt, um die Nacht gebührend mit uns zu tanzen!</p>
+    </details>
+
+    <details>
+        <summary>Wie sieht es mit Übernachtungsmöglichkeiten aus?</summary>
+        <p>Da Baden-Baden ein wunderschöner Kurort ist, gibt es zahlreiche Hotels in der Umgebung. Wir haben einige Hotelempfehlungen für euch vorbereitet – sprecht uns bei Bedarf gerne an.</p>
+    </details>
+
+    <details>
+        <summary>Wie kommen wir zur Location?</summary>
+        <p>Die Location ist gut mit dem Auto sowie mit Taxis aus der Umgebung erreichbar. Parkmöglichkeiten stehen euch vor Ort zur Verfügung.</p>
+    </details>
+
+    <details>
+        <summary>Was ist mit Hochzeitsgeschenken?</summary>
+        <p>Eure Anwesenheit ist das schönste Geschenk für uns! Sollt uns dennoch etwas schenken wollen, unterstützen wir damit gerne unsere gemeinsamen Zukunftspläne und Flitterwochen.</p>
+    </details>
+
+    <details>
+        <summary>Kann ich einen Rede oder einen Beitrag beisteuern?</summary>
+        <p>Darüber freuen wir uns sehr! Damit wir den Abend gut planen können, meldet euch für Programmpunkte oder Redebeiträge bitte vorab kurz bei unseren Trauzeugen.</p>
+    </details>
+
+    <details>
+        <summary>Sind Kinder auf der Hochzeit eingeladen?</summary>
+        <p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p>
+    </details>
+
+    <details>
+        <summary>Gibt es etwas bezüglich Allergien oder Unverträglichkeiten?</summary>
+        <p>Bitte gebt uns eventuelle Lebensmittelunverträglichkeiten oder spezielle Ernährungsünsche direkt bei eurer RSVP-Anmeldung mit an, damit die Küche sich optimal darauf einstellen kann.</p>
+    </details>
+</section>
 
     <script>
         function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
