@@ -2,137 +2,130 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna & Maik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Anna & Maik | Hochzeit</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="video-overlay" onclick="startExperience()">
-    <video id="intro-video" playsinline muted poster="vorschaubild.jpg">
-        <source src="umschlag-animation.mp4" type="video/mp4">
-    </video>
-</div>
 
-<script>
-    function startExperience() {
-        const video = document.getElementById('intro-video');
-        const overlay = document.getElementById('video-overlay');
-        
-        // Video abspielen
-        video.play();
-        
-        // Nach Ende des Videos das Overlay ausblenden
-        video.onended = () => {
-            overlay.style.opacity = "0";
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 1000);
-        };
-    }
-</script>
-<header class="navbar" id="navbar">
-    <div class="logo">Amore Mio</div>
-    <nav class="desktop-nav">
-        <a href="#hochzeit">Hochzeit</a>
-        <a href="#standort">Standort</a>
-        <a href="#location">Location</a>
-        <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
-    </nav>
-</header>
-
-<!-- 2. HERO MIT VIDEO -->
-<section class="hero">
-    <video autoplay muted playsinline id="heroVideo" class="hero-video">
-        <source src="Header-Video.MP4" type="video/mp4">
-        Dein Browser unterstützt kein Video.
-    </video>
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <h1>Anna & Maik</h1>
-        <p class="date">31. Juli 2026 · Baden-Baden</p>
-    </div>
-</section>
-
-<!-- 3. COUNTDOWN & RSVP -->
-<section id="countdown-section">
-    <div class="countdown-grid">
-        <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
-        <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
-        <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
-        <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
+    <!-- 1. INTRO VIDEO OVERLAY (Umschlag-Animation) -->
+    <div id="video-overlay" onclick="startExperience()">
+        <video id="intro-video" playsinline muted poster="vorschaubild.jpg">
+            <source src="umschlag-animation.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <div class="cta-container mobile-only">
-        <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
-    </div>
-</section>
+    <!-- 2. NAVIGATION -->
+    <header class="navbar" id="navbar">
+        <div class="logo">Amore Mio</div>
+        <nav class="desktop-nav">
+            <a href="#hochzeit">Hochzeit</a>
+            <a href="#standort">Standort</a>
+            <a href="#location">Location</a>
+            <a href="#faq">FAQ</a>
+            <!-- Nur am Desktop sichtbar -->
+            <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
+        </nav>
+    </header>
 
-<!-- 4. INHALTSBEREICHE -->
-<section id="hochzeit" class="content-section">
-    <h2>Hochzeit</h2>
-    <p>Inhalt zur Hochzeit...</p>
-</section>
+    <!-- 3. HERO MIT VIDEO -->
+    <section class="hero">
+        <video autoplay muted playsinline id="heroVideo" class="hero-video">
+            <source src="Header-Video.MP4" type="video/mp4">
+            Dein Browser unterstützt kein Video.
+        </video>
+        <div class="hero-overlay"></div>
 
-<section id="standort" class="content-section">
-    <h2>Standort</h2>
-    <p>Inhalt zum Standort...</p>
-</section>
+        <div class="hero-content">
+            <h1>Anna & Maik</h1>
+            <p class="date">31. Juli 2026 · Baden-Baden</p>
+        </div>
+    </section>
 
-<section id="location" class="content-section">
-    <h2>Location</h2>
-    <p>Inhalt zur Location...</p>
-</section>
+    <!-- 4. COUNTDOWN & RSVP -->
+    <section id="countdown-section">
+        <div class="countdown-grid">
+            <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
+            <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
+            <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
+            <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
+        </div>
 
-<!-- SKRIPTE -->
-<script>
-    // Intro-Video Logik
-    function startExperience() {
-        const video = document.getElementById('intro-video');
-        const overlay = document.getElementById('video-overlay');
-        
-        video.play();
-        
-        video.onended = () => {
-            overlay.style.opacity = "0";
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 1000);
-        };
-    }
+        <!-- Dieser Button erscheint nur mobil -->
+        <div class="cta-container mobile-only">
+            <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
+        </div>
+    </section>
 
-    // Countdown Logik
-    const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
-    const timer = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
+    <!-- 5. INHALTSBEREICHE -->
+    <section id="hochzeit" class="content-section">
+        <h2>Hochzeit</h2>
+        <p>Inhalt zur Hochzeit...</p>
+    </section>
 
-        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    <section id="standort" class="content-section">
+        <h2>Standort</h2>
+        <p>Inhalt zum Standort...</p>
+    </section>
 
-        if (distance < 0) {
-            clearInterval(timer);
-            document.getElementById("countdown-section").innerHTML = "Wir feiern!";
+    <section id="location" class="content-section">
+        <h2>Location</h2>
+        <p>Inhalt zur Location...</p>
+    </section>
+
+    <section id="faq" class="content-section">
+        <h2>FAQ</h2>
+        <p>Häufig gestellte Fragen...</p>
+    </section>
+
+    <!-- SKRIPTE -->
+    <script>
+        // Intro-Video Logik (Umschlag-Animation)
+        function startExperience() {
+            const video = document.getElementById('intro-video');
+            const overlay = document.getElementById('video-overlay');
+            
+            video.play();
+            
+            video.onended = () => {
+                overlay.style.opacity = "0";
+                setTimeout(() => {
+                    overlay.style.display = "none";
+                }, 1000);
+            };
         }
-    }, 1000);
 
-    // Header-Video am letzten Frame anhalten
-    const heroVideo = document.getElementById('heroVideo');
-    heroVideo.addEventListener('timeupdate', function() {
-        if (heroVideo.duration && heroVideo.currentTime >= heroVideo.duration - 0.2) {
-            heroVideo.pause();
-            heroVideo.currentTime = heroVideo.duration;
-        }
-    });
+        // Countdown Logik
+        const weddingDate = new Date("Jul 31, 2026 15:00:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
 
-    // Sticky Navbar Scroll-Effekt
-    window.addEventListener('scroll', function() {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
-</script>
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown-section").innerHTML = "Wir feiern!";
+            }
+        }, 1000);
+
+        // Header-Video am letzten Frame anhalten
+        const heroVideo = document.getElementById('heroVideo');
+        heroVideo.addEventListener('timeupdate', function() {
+            if (heroVideo.duration && heroVideo.currentTime >= heroVideo.duration - 0.2) {
+                heroVideo.pause();
+                heroVideo.currentTime = heroVideo.duration;
+            }
+        });
+
+        // Sticky Navbar Scroll-Effekt
+        window.addEventListener('scroll', function() {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 
 </body>
 </html>
