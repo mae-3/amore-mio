@@ -1,12 +1,34 @@
 /* --- Grunddesign --- */
 body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; line-height: 1.6; }
 
-/* --- Sticky Navigation --- */
-.navbar {
+/* --- Intro-Video Overlay (Umschlag-Animation) --- */
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Sticky Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -16,13 +38,23 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
 }
 
-.nav-links { display: flex; align-items: center; }
+.logo {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
 
-.nav-links a {
+.navbar.scrolled .logo { color: #333; }
+
+.desktop-nav { display: flex; align-items: center; }
+
+.desktop-nav a {
     color: white !important;
     text-decoration: none;
     margin: 0 15px;
@@ -31,7 +63,7 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-.navbar.scrolled .nav-links a { color: #333 !important; text-shadow: none; }
+.navbar.scrolled .desktop-nav a { color: #333 !important; text-shadow: none; }
 
 .btn-rsvp {
     border: 1px solid white;
@@ -64,10 +96,10 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 85vh;
+    height: 100vh;
     width: auto;
     z-index: 1;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .hero-overlay {
@@ -76,14 +108,14 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
 
 .hero-content {
     position: relative;
     z-index: 3;
-    margin-top: 50vh;
+    margin-top: 20vh;
 }
 
 .hero-content h1 {
@@ -128,21 +160,24 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
 
 .cta-container { text-align: center; padding: 20px 0 40px 0; }
 
-/* --- Mobile Optimierung (inkl. Instagram-Video-Anpassung) --- */
+.content-section {
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Mobile Optimierung --- */
 .mobile-only { display: none; }
 
 @media (max-width: 768px) {
+    .navbar { padding: 15px 20px; }
+    
     .hero {
         height: 80vh;
-        padding-top: 5vh;
         justify-content: flex-start;
     }
 
     .hero-video {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -158,6 +193,5 @@ body { margin: 0; font-family: 'Georgia', serif; font-weight: 300; color: #333; 
     #countdown-section { padding: 40px 10px; }
     .mobile-only { display: block; }
     .desktop-only { display: none; }
-    .navbar { padding: 10px; }
-    .nav-links a { margin: 0 8px; font-size: 0.85rem; }
+    .desktop-nav a { margin: 0 5px; font-size: 0.85rem; }
 }
