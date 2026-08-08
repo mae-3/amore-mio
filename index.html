@@ -52,13 +52,19 @@
         <a href="rsvp.html" onclick="toggleMenu()">RSVP</a>
     </div>
 
-    <!-- HERO (Nur noch Name & Datum) -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Anna & Maik</h1>
-        <p class="date">19. Dezember 2026 · Baden-Baden</p>
-    </div>
-</section>
+    <!-- 2. HERO MIT VIDEO (Endet auf dem letzten Frame) -->
+    <section class="hero">
+        <video autoplay muted playsinline id="heroVideo" class="hero-video">
+            <source src="Header-Video.MP4" type="video/mp4">
+            Dein Browser unterstützt kein Video.
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Anna & Maik</h1>
+            <p class="date">31. Juli 2026 · Baden-Baden</p>
+        </div>
+    </section>
 
 <!-- NEUE SEKTION FÜR TIMER & CTA -->
 <section id="countdown-section">
@@ -135,5 +141,16 @@
         setInterval(updateTimer, 1000);
         updateTimer();
     </script>
+
+<script>
+    const video = document.getElementById('heroVideo');
+    
+    video.addEventListener('ended', function() {
+        // Hält das Video auf dem exakten letzten Frame an
+        video.pause();
+        video.currentTime = video.duration;
+    });
+</script>
+    
 </body>
 </html>
