@@ -42,17 +42,59 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
 }
 .desktop-nav a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
-/* --- Hero Sektion --- */
-/* Hero Grundgerüst */
-/* Hero-Bereich */
-.hero { 
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('hochzeit.jpg'); 
-    background-size: cover; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: #fff; 
-    text-align: center; 
+/* --- Hero-Sektion mit Video --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 25vh;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Wichtig, damit das Video nicht über den Rand ragt */
+}
+
+/* Das Video im Hintergrund füllt alles aus */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Liegt ganz hinten */
+    object-fit: cover;
+}
+
+/* Das dunkle Overlay (ersetzt den Farbverlauf vom Bild) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* Verdunkelt das Video leicht für Lesbarkeit */
+    z-index: 2;
+}
+
+/* Der Text muss über dem Video und dem Overlay liegen */
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* --- Mobile Anpassung für das Video --- */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Bleibt schön kompakt wie gewünscht */
+        padding-top: 10vh;
+    }
 }
 
 /* --- Desktop Anpassungen --- */
