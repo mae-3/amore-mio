@@ -34,123 +34,105 @@
 <header class="navbar" id="navbar">
     <div class="logo">Amore Mio</div>
     <nav class="desktop-nav">
-        <a href="#about">Wir</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#anreise">Anreise</a>
-        <a href="#faq">FAQ</a>
-        <a href="rsvp.html" class="btn-nav">RSVP</a>
+        <a href="#hochzeit">Hochzeit</a>
+        <a href="#standort">Standort</a>
+        <a href="#location">Location</a>
+        <a href="rsvp.html" class="btn-rsvp desktop-only">RSVP</a>
     </nav>
-    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
-    <div class="nav-overlay" id="navOverlay">
-        <button class="close-btn" onclick="toggleMenu()">×</button>
-        <a href="#about" onclick="toggleMenu()">Wir</a>
-        <a href="#ablauf" onclick="toggleMenu()">Ablauf</a>
-        <a href="#anreise" onclick="toggleMenu()">Anreise</a>
-        <a href="#faq" onclick="toggleMenu()">FAQ</a>
-        <a href="rsvp.html" onclick="toggleMenu()">RSVP</a>
+<!-- 2. HERO MIT VIDEO -->
+<section class="hero">
+    <video autoplay muted playsinline id="heroVideo" class="hero-video">
+        <source src="Header-Video.MP4" type="video/mp4">
+        Dein Browser unterstützt kein Video.
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Anna & Maik</h1>
+        <p class="date">31. Juli 2026 · Baden-Baden</p>
     </div>
+</section>
 
-    <!-- 2. HERO MIT VIDEO (Endet auf dem letzten Frame) -->
-    <section class="hero">
-        <video autoplay muted playsinline id="heroVideo" class="hero-video">
-            <source src="Header-Video.MP4" type="video/mp4">
-            Dein Browser unterstützt kein Video.
-        </video>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <h1>Anna & Maik</h1>
-            <p class="date">31. Juli 2026 · Baden-Baden</p>
-        </div>
-    </section>
-
-<!-- NEUE SEKTION FÜR TIMER & CTA -->
+<!-- 3. COUNTDOWN & RSVP -->
 <section id="countdown-section">
     <div class="countdown-grid">
         <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
-        <div class="timer-box"><span id="hours" class="number"></span><span class="label">STD</span></div>
-        <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MIN</span></div>
-        <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEK</span></div>
+        <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
+        <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
+        <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
     </div>
-    <a href="rsvp.html" class="btn-hero">Jetzt anmelden</a>
+
+    <div class="cta-container mobile-only">
+        <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
+    </div>
 </section>
 
-    <section id="about" class="content-section">
-        <h2>Just Married.</h2>
-        <p>Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
-    </section>
-
-    <!-- FAQ Sektion -->
-<section id="faq" class="content-section">
-    <h2>Fragen & Antworten</h2>
-    
-    <details>
-        <summary>Wann und wo finden Trauung und Feier statt?</summary>
-        <p>Wir feiern am 19. Dezember 2026 in Baden-Baden. Die genauen Uhrzeiten und Location-Adresen findet ihr zeitnah hier oder in eurer persönlichen Einladung.</p>
-    </details>
-
-    <details>
-        <summary>Gibt es einen Dresscode?</summary>
-        <p>Wir wünschen uns von euch festliche und schicke Abendgarderobe. Kommt in dem, worin ihr euch wohlfühlt, um die Nacht gebührend mit uns zu tanzen!</p>
-    </details>
-
-    <details>
-        <summary>Wie sieht es mit Übernachtungsmöglichkeiten aus?</summary>
-        <p>Da Baden-Baden ein wunderschöner Kurort ist, gibt es zahlreiche Hotels in der Umgebung. Wir haben einige Hotelempfehlungen für euch vorbereitet – sprecht uns bei Bedarf gerne an.</p>
-    </details>
-
-    <details>
-        <summary>Wie kommen wir zur Location?</summary>
-        <p>Die Location ist gut mit dem Auto sowie mit Taxis aus der Umgebung erreichbar. Parkmöglichkeiten stehen euch vor Ort zur Verfügung.</p>
-    </details>
-
-    <details>
-        <summary>Was ist mit Hochzeitsgeschenken?</summary>
-        <p>Eure Anwesenheit ist das schönste Geschenk für uns! Sollt uns dennoch etwas schenken wollen, unterstützen wir damit gerne unsere gemeinsamen Zukunftspläne und Flitterwochen.</p>
-    </details>
-
-    <details>
-        <summary>Kann ich einen Rede oder einen Beitrag beisteuern?</summary>
-        <p>Darüber freuen wir uns sehr! Damit wir den Abend gut planen können, meldet euch für Programmpunkte oder Redebeiträge bitte vorab kurz bei unseren Trauzeugen.</p>
-    </details>
-
-    <details>
-        <summary>Sind Kinder auf der Hochzeit eingeladen?</summary>
-        <p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysitern in besten Händen.</p>
-    </details>
-
-    <details>
-        <summary>Gibt es etwas bezüglich Allergien oder Unverträglichkeiten?</summary>
-        <p>Bitte gebt uns eventuelle Lebensmittelunverträglichkeiten oder spezielle Ernährungsünsche direkt bei eurer RSVP-Anmeldung mit an, damit die Küche sich optimal darauf einstellen kann.</p>
-    </details>
+<!-- 4. INHALTSBEREICHE -->
+<section id="hochzeit" class="content-section">
+    <h2>Hochzeit</h2>
+    <p>Inhalt zur Hochzeit...</p>
 </section>
 
-    <script>
-        function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
-        const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
-        function updateTimer() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
-    </script>
+<section id="standort" class="content-section">
+    <h2>Standort</h2>
+    <p>Inhalt zum Standort...</p>
+</section>
 
+<section id="location" class="content-section">
+    <h2>Location</h2>
+    <p>Inhalt zur Location...</p>
+</section>
+
+<!-- SKRIPTE -->
 <script>
-    const video = document.getElementById('heroVideo');
-    
-    video.addEventListener('ended', function() {
-        // Hält das Video auf dem exakten letzten Frame an
-        video.pause();
-        video.currentTime = video.duration;
+    // Intro-Video Logik
+    function startExperience() {
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+        
+        video.play();
+        
+        video.onended = () => {
+            overlay.style.opacity = "0";
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 1000);
+        };
+    }
+
+    // Countdown Logik
+    const weddingDate = new Date("Dec 19, 2026 17:00:00").getTime();
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown-section").innerHTML = "Wir feiern!";
+        }
+    }, 1000);
+
+    // Header-Video am letzten Frame anhalten
+    const heroVideo = document.getElementById('heroVideo');
+    heroVideo.addEventListener('timeupdate', function() {
+        if (heroVideo.duration && heroVideo.currentTime >= heroVideo.duration - 0.2) {
+            heroVideo.pause();
+            heroVideo.currentTime = heroVideo.duration;
+        }
+    });
+
+    // Sticky Navbar Scroll-Effekt
+    window.addEventListener('scroll', function() {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 </script>
-    
+
 </body>
 </html>
