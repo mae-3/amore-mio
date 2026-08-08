@@ -3,24 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP | Anna & Maik</title>
+    <title>RSVP | Anna &amp; Maik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav style="text-align: center; padding: 20px;">
-        <a href="index.html">Startseite</a>
-    </nav>
+<nav class="simple-nav">
+    <a href="index.html">&larr; Zurück zur Startseite</a>
+</nav>
 
-    <main class="container">
-        <h1>Rückmeldung</h1>
-        <p>Wir freuen uns auf eure Zusage.</p>
-        
-        <!-- Hier kommt der Google-Formular-Code hin -->
-        <div class="form-container">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeq9o54esvM6yEuXyUTxFXT2IbOM6mOjMCwdcJvtvYTSATOvw/viewform?embedded=true" width="640" height="1402" frameborder="0" marginheight="0" marginwidth="0">Wird geladen…</iframe>" width="100%" height="800" frameborder="0">Wird geladen...</iframe>
+<main class="form-section">
+    <p class="section-kicker" style="text-align:center;">19. Dezember 2026</p>
+    <h1>Rückmeldung</h1>
+    <p class="form-intro">Wir freuen uns auf eure Nachricht – bitte bis zum <strong>31. Oktober 2026</strong>.</p>
+
+    <!--
+      ================= WICHTIG: FORMULAR AKTIVIEREN =================
+      Das Formular braucht einen Empfänger. Zwei einfache Wege:
+
+      A) Formspree (empfohlen, kostenlos für kleine Mengen)
+         1. formspree.io → Account anlegen → neues Formular erstellen
+         2. Du bekommst eine URL wie https://formspree.io/f/abcdwxyz
+         3. Diese URL unten bei action="..." eintragen (statt DEIN_FORMSPREE_LINK)
+
+      B) Google Forms
+         Formular in Google Forms bauen, "Einbetten" wählen und den
+         <iframe>-Code hier statt des <form>-Blocks einfügen.
+      ================================================================
+    -->
+    <form action="DEIN_FORMSPREE_LINK" method="POST" id="rsvpForm">
+
+        <div class="form-group">
+            <label for="name">Name(n)</label>
+            <input type="text" id="name" name="Name" required placeholder="Vor- und Nachname">
         </div>
-    </main>
 
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="E-Mail" required placeholder="fuer@rueckfragen.de">
+        </div>
+
+        <div class="form-group">
+            <label>Seid ihr dabei?</label>
+            <div class="radio-row">
+                <label class="radio-option">
+                    <input type="radio" name="Teilnahme" value="Ja, wir kommen" required>
+                    Ja, wir sind dabei
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="Teilnahme" value="Leider nicht">
+                    Leider nicht
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group" id="personenGroup">
+            <label for="personen">Anzahl Personen</label>
+            <input type="number" id="personen" name="Anzahl Personen" min="1" max="10" value="1">
+            <p class="form-hint">Inklusive dir selbst.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="begleitung">Name der Begleitung</label>
+            <input type="text" id="begleitung" name="Begleitung" placeholder="Optional">
+        </div>
+
+        <div class="form-group">
+            <label for="essen">Allergien, Unverträglichkeiten oder Ernährungswünsche</label>
+            <textarea id="essen" name="Essenswuensche" placeholder="z. B. vegetarisch, laktosefrei, Nussallergie …"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Möchtet ihr einen Beitrag zum Abend leisten?</label>
+            <div class="radio-row">
+                <label class="radio-option">
+                    <input type="radio" name="Beitrag" value="Ja">
+                    Ja, gerne
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="Beitrag" value="Nein">
+                    Nein, danke
+                </label>
+            </div>
+            <p class="form-hint">Rede, Musik, Spiel – meldet euch danach bitte kurz bei unseren Trauzeugen.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="nachricht">Nachricht an uns</label>
+            <textarea id="nachricht" name="Nachricht" placeholder="Alles, was wir wissen sollten."></textarea>
+        </div>
+
+        <!-- Spam-Schutz -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <div class="form-actions">
+            <button type="submit" class="btn-hero">Rückmeldung senden</button>
+            <p class="form-hint" id="formHinweis" style="margin-top:16px;"></p>
+        </div>
+    </form>
+</main>
+
+<footer class="site-footer">
+    <p class="footer-names">Anna &amp; Maik</p>
+    <p>19. Dezember 2026 · Rive Gauche · Baden-Baden</p>
+</footer>
+
+<script>
+    const form = document.getElementById('rsvpForm');
+    const hinweis = document.getElementById('formHinweis');
+
+    // Warnung, solange der Formspree-Link noch nicht eingetragen ist
+    if (form.getAttribute('action') === 'DEIN_FORMSPREE_LINK') {
+        hinweis.textContent = 'Hinweis: Das Formular ist noch nicht mit einem Empfänger verbunden.';
+        hinweis.style.color = '#b4342d';
+    }
+
+    // Personenanzahl ausblenden bei Absage
+    const personenGroup = document.getElementById('personenGroup');
+    document.querySelectorAll('input[name="Teilnahme"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            const kommt = e.target.value.startsWith('Ja');
+            personenGroup.style.display = kommt ? '' : 'none';
+        });
+    });
+</script>
 </body>
 </html>

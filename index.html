@@ -2,145 +2,340 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anna & Maik | Hochzeit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna &amp; Maik · 19.12.2026 · Baden-Baden</title>
+    <meta name="description" content="Anna &amp; Maik feiern am 19. Dezember 2026 im Rive Gauche in Baden-Baden. Alle Infos und Anmeldung.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="intro-locked">
 
-    <!-- 1. INTRO VIDEO OVERLAY (Umschlag-Animation) -->
-    <div id="video-overlay" onclick="startExperience()">
-        <video id="intro-video" playsinline muted poster="vorschaubild.jpg">
-            <source src="umschlag-animation.mp4" type="video/mp4">
-        </video>
+<!-- ============ INTRO: UMSCHLAG-ANIMATION ============ -->
+<div id="intro-overlay">
+    <video id="intro-video"
+           playsinline
+           webkit-playsinline
+           muted
+           preload="auto"
+           poster="vorschaubild.jpg">
+        <source src="umschlag-animation.mp4" type="video/mp4">
+    </video>
+
+    <!-- Klickfläche auf dem Siegel -->
+    <button id="seal-button" aria-label="Einladung öffnen">
+        <span class="seal-ring"></span>
+    </button>
+
+    <p id="intro-hint">Tippe auf das Siegel</p>
+    <button id="intro-skip">Überspringen</button>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="navbar" id="navbar">
+    <a class="logo" href="#top">Amore Mio</a>
+    <nav class="desktop-nav">
+        <a href="#about">Wir</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#anreise">Anreise</a>
+        <a href="#faq">FAQ</a>
+        <a href="rsvp.html" class="btn-nav">RSVP</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <button class="close-btn" id="closeBtn" aria-label="Menü schließen">&times;</button>
+    <a href="#about">Wir</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#anreise">Anreise</a>
+    <a href="#faq">FAQ</a>
+    <a href="rsvp.html">RSVP</a>
+</div>
+
+<!-- ============ HERO MIT VIDEO ============ -->
+<section class="hero" id="top">
+    <!-- Läuft einmal durch und bleibt danach auf dem letzten Bild stehen.
+         Start erfolgt per JavaScript, sobald die Intro-Animation beendet ist. -->
+    <video class="hero-video"
+           id="hero-video"
+           muted
+           playsinline
+           webkit-playsinline
+           preload="none"
+           poster="hochzeit.jpg">
+        <source src="Header-Video.MP4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="eyebrow">Wir feiern</p>
+        <h1>Anna &amp; Maik</h1>
+        <p class="date">19. Dezember 2026 · Rive Gauche · Baden-Baden</p>
     </div>
+    <a href="#countdown-section" class="scroll-hint" aria-label="Nach unten scrollen"></a>
+</section>
 
-    <!-- 2. NAVIGATION MIT BURGER-MENÜ -->
-    <header class="navbar" id="navbar">
-        <div class="logo">Amore Mio</div>
-        
-        <!-- Burger Icon für Mobil -->
-        <div class="burger-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<!-- ============ COUNTDOWN & CTA ============ -->
+<section id="countdown-section">
+    <p class="section-kicker">Noch</p>
+    <div class="countdown-grid">
+        <div class="timer-box"><span id="days" class="number">–</span><span class="label">Tage</span></div>
+        <div class="timer-box"><span id="hours" class="number">–</span><span class="label">Std</span></div>
+        <div class="timer-box"><span id="minutes" class="number">–</span><span class="label">Min</span></div>
+        <div class="timer-box"><span id="seconds" class="number">–</span><span class="label">Sek</span></div>
+    </div>
+    <a href="rsvp.html" class="btn-hero">Jetzt anmelden</a>
+</section>
+
+<!-- ============ ÜBER UNS ============ -->
+<section id="about" class="content-section">
+    <p class="section-kicker">Über uns</p>
+    <h2>Just Married.</h2>
+    <p class="lead">Am 31. Juli 2026 haben wir uns auf Sylt das Ja-Wort gegeben. Nun freuen wir uns riesig, den nächsten Meilenstein unserer Reise gemeinsam mit euch in Baden-Baden zu feiern.</p>
+</section>
+
+<!-- ============ ABLAUF ============ -->
+<section id="ablauf" class="content-section alt">
+    <p class="section-kicker">19. Dezember 2026</p>
+    <h2>Der Ablauf</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="time">17:00</span>
+            <div class="timeline-text">
+                <h3>Empfang</h3>
+                <p>Ankommen im Rive Gauche, Aperitif und erste Umarmungen.</p>
+            </div>
         </div>
-
-        <nav class="desktop-nav" id="navLinks">
-            <a href="#hochzeit" onclick="closeMenu()">Hochzeit</a>
-            <a href="#standort" onclick="closeMenu()">Standort</a>
-            <a href="#location" onclick="closeMenu()">Location</a>
-            <a href="#faq" onclick="closeMenu()">FAQ</a>
-            <a href="rsvp.html" class="btn-rsvp">RSVP</a>
-        </nav>
-    </header>
-
-    <!-- 3. HERO MIT VIDEO (Läuft in Schleife) -->
-    <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="Header-Video.MP4" type="video/mp4">
-            Dein Browser unterstützt kein Video.
-        </video>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <h1>Anna & Maik</h1>
-            <p class="date">31. Juli 2026 · Baden-Baden</p>
+        <div class="timeline-item">
+            <span class="time">18:00</span>
+            <div class="timeline-text">
+                <h3>Zeremonie</h3>
+                <p>Unsere freie Trauung – der Moment, auf den wir alle warten.</p>
+            </div>
         </div>
-    </section>
-
-    <!-- 4. COUNTDOWN & RSVP -->
-    <section id="countdown-section">
-        <div class="countdown-grid">
-            <div class="timer-box"><span id="days" class="number"></span><span class="label">TAGE</span></div>
-            <div class="timer-box"><span id="hours" class="number"></span><span class="label">STUNDEN</span></div>
-            <div class="timer-box"><span id="minutes" class="number"></span><span class="label">MINUTEN</span></div>
-            <div class="timer-box"><span id="seconds" class="number"></span><span class="label">SEKUNDEN</span></div>
+        <div class="timeline-item">
+            <span class="time">19:30</span>
+            <div class="timeline-text">
+                <h3>Dinner</h3>
+                <p>Festliches Abendessen, Reden und der ein oder andere Toast.</p>
+            </div>
         </div>
-
-        <div class="cta-container mobile-only">
-            <a href="rsvp.html" class="btn-hero">Jetzt zur Anmeldung</a>
+        <div class="timeline-item">
+            <span class="time">22:00</span>
+            <div class="timeline-text">
+                <h3>Party</h3>
+                <p>Eröffnungstanz, Musik und Tanzfläche bis in die frühen Morgenstunden.</p>
+            </div>
         </div>
-    </section>
-
-    <!-- 5. INHALTSBEREICHE -->
-    <section id="hochzeit" class="content-section">
-        <h2>Hochzeit</h2>
-        <p>Inhalt zur Hochzeit...</p>
-    </section>
-
-    <section id="standort" class="content-section">
-        <h2>Standort</h2>
-        <p>Inhalt zum Standort...</p>
-    </section>
-
-    <section id="location" class="content-section">
-        <h2>Location</h2>
-        <p>Inhalt zur Location...</p>
-    </section>
-
-    <!-- FAQ MIT AUFKLAPP-FUNKTION -->
-    <section id="faq" class="content-section">
-        <h2>FAQ</h2>
-        <div class="faq-container">
-            <details class="faq-item">
-                <summary>Gibt es einen Dresscode?</summary>
-                <p>Wir freuen uns über festliche Abendgarderobe.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Bis wann sollte ich zusagen?</summary>
-                <p>Bitte gib uns bis zum 30. Oktober 2026 Bescheid.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Sind Kinder auf der Feier willkommen?</summary>
-                <p>An unserem großen Tag feiern wir im engen Kreis mit unseren Erwachsenen-Gästen (Ausnahme: unsere Tochter).</p>
-            </details>
+        <div class="timeline-item">
+            <span class="time">03:00</span>
+            <div class="timeline-text">
+                <h3>Ausklang</h3>
+                <p>Letzte Runde – und dann gut schlafen.</p>
+            </div>
         </div>
-    </section>
+    </div>
+    <p class="note">Die Zeiten sind vorläufig. Sobald alles final steht, findet ihr es hier.</p>
+</section>
 
-    <!-- SKRIPTE -->
-    <script>
-        // Intro-Video Logik
-        function startExperience() {
-            const video = document.getElementById('intro-video');
-            const overlay = document.getElementById('video-overlay');
-            video.play();
-            video.onended = () => {
-                overlay.style.opacity = "0";
-                setTimeout(() => { overlay.style.display = "none"; }, 1000);
-            };
-        }
+<!-- ============ ANREISE ============ -->
+<section id="anreise" class="content-section">
+    <p class="section-kicker">Location</p>
+    <h2>Anreise &amp; Übernachtung</h2>
 
-        // Burger Menü umschalten
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-        function closeMenu() {
-            document.getElementById('navLinks').classList.remove('active');
-        }
+    <div class="cards">
+        <div class="card">
+            <h3>Rive Gauche</h3>
+            <p>Baden-Baden<br>Die genaue Adresse findet ihr in eurer persönlichen Einladung.</p>
+            <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=Rive+Gauche+Baden-Baden" target="_blank" rel="noopener">In Google Maps öffnen</a>
+        </div>
+        <div class="card">
+            <h3>Mit dem Auto</h3>
+            <p>Baden-Baden liegt direkt an der A5. Parkmöglichkeiten stehen euch in der Nähe der Location zur Verfügung.</p>
+        </div>
+        <div class="card">
+            <h3>Mit der Bahn</h3>
+            <p>Bahnhof Baden-Baden ist über den ICE angebunden. Vom Bahnhof erreicht ihr die Location bequem mit Bus oder Taxi.</p>
+        </div>
+        <div class="card">
+            <h3>Übernachten</h3>
+            <p>Baden-Baden bietet Hotels in jeder Preisklasse. Wir empfehlen, früh zu buchen – im Dezember ist die Stadt gut besucht. Sprecht uns gerne für Empfehlungen an.</p>
+        </div>
+        <div class="card">
+            <h3>Taxi</h3>
+            <p>Für den Heimweg lohnt es sich, das Taxi vorab zu bestellen. Wir sammeln Nummern und hinterlegen sie hier rechtzeitig vor der Feier.</p>
+        </div>
+        <div class="card">
+            <h3>Wetter im Dezember</h3>
+            <p>Kalt, oft feucht, gerne unter 5 °C. Denkt an einen warmen Mantel für den Weg – drinnen ist es kuschelig.</p>
+        </div>
+    </div>
+</section>
 
-        // Countdown Logik (Ziel: 31. Juli 2026)
-        const weddingDate = new Date("Jul 31, 2026 15:00:00").getTime();
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+<!-- ============ FAQ ============ -->
+<section id="faq" class="content-section alt">
+    <p class="section-kicker">Gut zu wissen</p>
+    <h2>Fragen &amp; Antworten</h2>
 
-            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    <div class="faq-list">
+        <details>
+            <summary>Wann und wo finden Trauung und Feier statt?</summary>
+            <p>Wir feiern am 19. Dezember 2026 im Rive Gauche in Baden-Baden. Die genauen Uhrzeiten und die Adresse findet ihr zeitnah hier oder in eurer persönlichen Einladung.</p>
+        </details>
+        <details>
+            <summary>Gibt es einen Dresscode?</summary>
+            <p>Wir wünschen uns festliche, schicke Abendgarderobe. Kommt in dem, worin ihr euch wohlfühlt – Hauptsache, ihr könnt die Nacht mit uns durchtanzen.</p>
+        </details>
+        <details>
+            <summary>Wie sieht es mit Übernachtungsmöglichkeiten aus?</summary>
+            <p>Baden-Baden ist ein wunderschöner Kurort mit zahlreichen Hotels in der Umgebung. Wir haben einige Empfehlungen für euch vorbereitet – sprecht uns bei Bedarf gerne an.</p>
+        </details>
+        <details>
+            <summary>Wie kommen wir zur Location?</summary>
+            <p>Die Location ist gut mit dem Auto sowie mit dem Taxi erreichbar. Parkmöglichkeiten stehen euch vor Ort zur Verfügung. Mehr dazu findet ihr im Abschnitt „Anreise“.</p>
+        </details>
+        <details>
+            <summary>Was ist mit Hochzeitsgeschenken?</summary>
+            <p>Eure Anwesenheit ist das schönste Geschenk für uns! Solltet ihr uns dennoch etwas schenken wollen, unterstützt ihr damit gerne unsere gemeinsamen Zukunftspläne und die Flitterwochen.</p>
+        </details>
+        <details>
+            <summary>Kann ich eine Rede oder einen Beitrag beisteuern?</summary>
+            <p>Darüber freuen wir uns sehr! Damit wir den Abend gut planen können, meldet euch für Programmpunkte oder Redebeiträge bitte vorab kurz bei unseren Trauzeugen.</p>
+        </details>
+        <details>
+            <summary>Sind Kinder auf der Hochzeit eingeladen?</summary>
+            <p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysittern in besten Händen.</p>
+        </details>
+        <details>
+            <summary>Gibt es etwas bezüglich Allergien oder Unverträglichkeiten?</summary>
+            <p>Bitte gebt uns eventuelle Lebensmittelunverträglichkeiten oder spezielle Ernährungswünsche direkt bei eurer RSVP-Anmeldung mit an, damit die Küche sich optimal darauf einstellen kann.</p>
+        </details>
+    </div>
+</section>
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown-section").innerHTML = "Wir feiern!";
-            }
-        }, 1000);
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+    <h2>Seid ihr dabei?</h2>
+    <p>Wir freuen uns über eure Rückmeldung bis zum 31. Oktober 2026.</p>
+    <a href="rsvp.html" class="btn-hero">Zur Anmeldung</a>
+</section>
 
-        // Sticky Navbar Scroll-Effekt
-        window.addEventListener('scroll', function() {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+<footer class="site-footer">
+    <p class="footer-names">Anna &amp; Maik</p>
+    <p>19. Dezember 2026 · Rive Gauche · Baden-Baden</p>
+</footer>
+
+<script>
+    /* =========================================================
+       INTRO: Umschlag-Animation
+       ========================================================= */
+    const introOverlay = document.getElementById('intro-overlay');
+    const introVideo   = document.getElementById('intro-video');
+    const sealButton   = document.getElementById('seal-button');
+    const introHint    = document.getElementById('intro-hint');
+    const introSkip    = document.getElementById('intro-skip');
+    const heroVideo    = document.getElementById('hero-video');
+
+    let introFertig = false;
+
+    /* Hero-Video starten (läuft einmal, bleibt dann auf dem letzten Bild stehen) */
+    function heroVideoStarten() {
+        if (!heroVideo) return;
+        heroVideo.play().catch(() => {
+            // Autoplay blockiert – beim ersten Tippen erneut versuchen.
+            document.addEventListener('touchstart', () => heroVideo.play().catch(() => {}), { once: true });
+            document.addEventListener('click',      () => heroVideo.play().catch(() => {}), { once: true });
         });
-    </script>
+    }
 
+    if (heroVideo) {
+        heroVideo.addEventListener('ended', () => { heroVideo.pause(); });      // letztes Bild einfrieren
+        heroVideo.addEventListener('error', () => heroVideo.classList.add('video-failed'));
+    }
+
+    /* Intro schließen und Website freigeben */
+    function introBeenden() {
+        if (introFertig) return;
+        introFertig = true;
+        sessionStorage.setItem('introGesehen', '1');   // Intro pro Besuch nur einmal
+        introOverlay.classList.add('fade-out');
+        document.body.classList.remove('intro-locked');
+        heroVideoStarten();
+        setTimeout(() => { introOverlay.style.display = 'none'; }, 1000);
+    }
+
+    /* Animation starten */
+    function introStarten() {
+        introOverlay.classList.add('playing');          // Siegel-Ring & Hinweis ausblenden
+        if (heroVideo) heroVideo.load();                // Hero-Video im Hintergrund vorladen
+        introVideo.play().catch(introBeenden);          // klappt das nicht, direkt weiter
+    }
+
+    if (sessionStorage.getItem('introGesehen')) {
+        /* Zurück von der RSVP-Seite: Intro überspringen */
+        introOverlay.style.display = 'none';
+        document.body.classList.remove('intro-locked');
+        introFertig = true;
+        if (heroVideo) { heroVideo.load(); heroVideoStarten(); }
+    } else {
+        sealButton.addEventListener('click', introStarten);
+        introSkip.addEventListener('click', e => { e.stopPropagation(); introBeenden(); });
+        introVideo.addEventListener('ended', introBeenden);
+        introVideo.addEventListener('error', introBeenden);
+        /* Notbremse: falls das Video hängen bleibt, nach Videolänge + 4 s weiter */
+        introVideo.addEventListener('play', () => {
+            const dauer = isFinite(introVideo.duration) ? introVideo.duration * 1000 : 30000;
+            setTimeout(introBeenden, dauer + 4000);
+        });
+    }
+
+    /* ---------- Mobile-Menü ---------- */
+    const overlay = document.getElementById('navOverlay');
+    const burger  = document.getElementById('burger');
+
+    function toggleMenu() {
+        const open = overlay.classList.toggle('active');
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    document.getElementById('closeBtn').addEventListener('click', toggleMenu);
+    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
+
+    /* ---------- Navbar-Hintergrund beim Scrollen ---------- */
+    const navbar = document.getElementById('navbar');
+    function onScroll() {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- Countdown ---------- */
+    const weddingDate = new Date(2026, 11, 19, 17, 0, 0).getTime(); // 19.12.2026, 17:00
+    const pad = n => String(n).padStart(2, '0');
+
+    function updateTimer() {
+        const distance = weddingDate - Date.now();
+        if (distance <= 0) {
+            ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).innerText = '0');
+            return;
+        }
+        document.getElementById('days').innerText    = Math.floor(distance / 86400000);
+        document.getElementById('hours').innerText   = pad(Math.floor((distance % 86400000) / 3600000));
+        document.getElementById('minutes').innerText = pad(Math.floor((distance % 3600000) / 60000));
+        document.getElementById('seconds').innerText = pad(Math.floor((distance % 60000) / 1000));
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    /* ---------- Sanftes Einblenden der Sektionen ---------- */
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.content-section, .cta-band').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+</script>
 </body>
 </html>
