@@ -2,6 +2,40 @@
    Anna & Maik · 19.12.2026 · Baden-Baden
    ========================================================= */
 
+/* =========================================================
+   SCHRIFTEN – lokal eingebunden
+   ---------------------------------------------------------
+   Die Schriften liegen im Unterordner "fonts" und werden von
+   dort geladen. Dadurch wird keine Besucher-IP mehr an Google
+   uebertragen. Solange die Dateien fehlen, greifen automatisch
+   die Systemschriften aus --serif und --sans.
+   ========================================================= */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/playfair-400.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/playfair-500.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-300.woff2') format('woff2');
+    font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-400.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-500.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+}
+
 :root {
     --gold: #c5a059;
     --gold-dark: #a8874a;
@@ -922,6 +956,16 @@ details p {
 .radio-option:has(input:checked) { border-color: var(--gold); background: var(--cream); }
 
 .form-hint { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+.datenschutz {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #9a9187;
+    text-align: left;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    margin: 34px 0 0;
+}
 .form-actions { text-align: center; margin-top: 36px; }
 
 .danke-box {
