@@ -1,587 +1,93 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna &amp; Maik · 19.12.2026 · Baden-Baden</title>
-    <meta name="description" content="Anna &amp; Maik feiern am 19. Dezember 2026 im Rive Gauche in Baden-Baden. Alle Infos und Anmeldung.">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Anna &amp; Maik</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        background: radial-gradient(ellipse at center, #3a322b 0%, #1c1815 100%);
+        color: #f5efe6;
+        font-family: Georgia, 'Times New Roman', serif;
+        text-align: center;
+    }
+    .karte { max-width: 460px; }
+    .eyebrow {
+        font-size: .7rem;
+        letter-spacing: .34em;
+        text-transform: uppercase;
+        color: #a3937a;
+        margin: 0 0 18px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    }
+    h1 {
+        font-size: clamp(2.6rem, 11vw, 4rem);
+        font-weight: 500;
+        margin: 0;
+        line-height: 1.1;
+    }
+    .datum {
+        font-size: .78rem;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: #cfc3b0;
+        margin: 20px 0 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    }
+    .linie {
+        width: 54px;
+        height: 1px;
+        background: #c5a059;
+        margin: 34px auto;
+    }
+    .text {
+        font-size: 1.02rem;
+        line-height: 1.8;
+        color: #d8cec0;
+        margin: 0;
+    }
+    .tage {
+        margin: 34px 0 0;
+        font-size: .72rem;
+        letter-spacing: .24em;
+        text-transform: uppercase;
+        color: #a3937a;
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    }
+    .tage strong { color: #c5a059; font-size: 1.05rem; letter-spacing: .1em; }
+</style>
 </head>
-<body class="intro-locked">
-
-<!-- ============ INTRO: UMSCHLAG-ANIMATION ============ -->
-<div id="intro-overlay">
-    <video id="intro-video"
-           playsinline
-           webkit-playsinline
-           muted
-           preload="auto"
-           poster="vorschaubild.jpg">
-        <source src="umschlag-animation.mp4" type="video/mp4">
-    </video>
-
-    <!-- Klickfläche auf dem Siegel -->
-    <button id="seal-button" aria-label="Einladung öffnen">
-        <span class="seal-ring"></span>
-    </button>
-
-    <p id="intro-hint">Tippe auf das Siegel</p>
-    <button id="intro-skip">Überspringen</button>
-</div>
-
-<!-- ============ NAVIGATION ============ -->
-<header class="navbar" id="navbar">
-    <a class="logo" href="#top">Amore Mio</a>
-    <nav class="desktop-nav">
-        <a href="#about">Wir</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#anreise">Anreise</a>
-        <a href="#faq">FAQ</a>
-        <a href="rsvp.html" class="btn-nav">Rückmeldung</a>
-    </nav>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-</header>
-
-<div class="nav-overlay" id="navOverlay">
-    <button class="close-btn" id="closeBtn" aria-label="Menü schließen">&times;</button>
-    <a href="#about">Wir</a>
-    <a href="#ablauf">Ablauf</a>
-    <a href="#anreise">Anreise</a>
-    <a href="#faq">FAQ</a>
-    <a href="rsvp.html">Rückmeldung</a>
-</div>
-
-<!-- ============ HERO MIT VIDEO ============ -->
-<section class="hero" id="top">
-    <!-- Hochformat-Video (9:16). Auf Tablet/Desktop wird es vollstaendig gezeigt,
-         die Raender fuellt eine unscharfe, mitlaufende Kopie (Canvas).
-         Laeuft einmal durch und bleibt danach auf dem letzten Bild stehen. -->
-    <div class="hero-media">
-        <canvas class="hero-ambient" id="hero-ambient" width="32" height="57" aria-hidden="true"></canvas>
-        <video class="hero-video"
-               id="hero-video"
-               muted
-               playsinline
-               webkit-playsinline
-               preload="none">
-            <source src="Header-Video.MP4" type="video/mp4">
-        </video>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
+<body>
+    <div class="karte">
         <p class="eyebrow">Wir feiern</p>
         <h1>Anna &amp; Maik</h1>
-        <p class="date">19. Dezember 2026 · Rive Gauche · Baden-Baden</p>
+        <p class="datum">19. Dezember 2026 · Baden-Baden</p>
+
+        <div class="linie"></div>
+
+        <p class="text">
+            Hier entsteht gerade unsere Einladung.<br>
+            Schaut bald wieder vorbei – wir freuen uns auf euch.
+        </p>
+
+        <p class="tage" id="tage"></p>
     </div>
-    <a href="#countdown-section" class="scroll-hint" aria-label="Nach unten scrollen"></a>
-</section>
-
-<!-- ============ COUNTDOWN & CTA ============ -->
-<section id="countdown-section">
-
-    <!-- Zustand 1: bis zum 19.12.2026, 00:00 Uhr -->
-    <div id="state-countdown">
-        <p class="section-kicker">Noch</p>
-        <div class="countdown-grid">
-            <div class="timer-box"><span id="days" class="number">–</span><span class="label">Tage</span></div>
-            <div class="timer-box"><span id="hours" class="number">–</span><span class="label">Std</span></div>
-            <div class="timer-box"><span id="minutes" class="number">–</span><span class="label">Min</span></div>
-            <div class="timer-box"><span id="seconds" class="number">–</span><span class="label">Sek</span></div>
-        </div>
-        <a href="rsvp.html" class="btn-hero">Jetzt Bescheid geben</a>
-    </div>
-
-    <!-- Zustand 2: der Hochzeitstag selbst -->
-    <div id="state-heute" hidden>
-        <p class="section-kicker">19. Dezember 2026</p>
-        <h2 class="day-headline">Heute ist es soweit</h2>
-        <p class="day-sub">Wir freuen uns auf euch.</p>
-        <div class="day-facts">
-            <div class="day-fact"><span class="f-label">Ankommen</span><span class="f-value">16:30 Uhr</span></div>
-            <div class="day-fact"><span class="f-label">Trauung</span><span class="f-value">17:00 Uhr</span></div>
-            <div class="day-fact"><span class="f-label">Shuttle</span><span class="f-value">ab 22:00 Uhr</span></div>
-        </div>
-        <p class="day-address">Rive Gauche · Lichtentaler Allee 8 · 76530 Baden-Baden</p>
-        <a class="btn-hero" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lichtentaler+Allee+8%2C+76530+Baden-Baden" target="_blank" rel="noopener">Route starten</a>
-    </div>
-
-    <!-- Zustand 3: nach der Feier -->
-    <div id="state-danach" hidden>
-        <p class="section-kicker">19. Dezember 2026</p>
-        <h2 class="day-headline">Wir haben gefeiert</h2>
-        <p class="day-sub">Danke, dass ihr dabei wart.</p>
-    </div>
-
-</section>
-
-<!-- ============ ÜBER UNS ============ -->
-<section id="about" class="content-section">
-    <p class="section-kicker">Über uns</p>
-    <h2>Just Married.</h2>
-    <p class="lead">Am 31. Juli 2026 haben wir auf Sylt standesamtlich geheiratet. Ein kleiner Tag im engsten Kreis, mit Wind, Meer und ziemlich viel Sand in den Schuhen.</p>
-    <p class="lead">Was uns gefehlt hat, wart ihr. Deshalb feiern wir am 19. Dezember in Baden-Baden noch einmal richtig: mit freier Trauung, gutem Essen und einer langen Nacht.</p>
-
-    <!-- ============================================================
-         IMPRESSIONEN VON SYLT
-         Legt eure Bilder als sylt-1.jpg bis sylt-4.jpg in diesen
-         Ordner. Bilder, die noch fehlen, blendet die Seite von
-         selbst aus – ihr könnt sie also nach und nach ergänzen.
-         Tipp: Auf ca. 1600 Pixel Breite verkleinern, sonst wird
-         die Seite auf dem Handy langsam.
-         ============================================================ -->
-    <div class="galerie" id="galerie">
-        <figure><img src="sylt-1.jpg" alt="Impression von unserer Hochzeit auf Sylt" loading="lazy"></figure>
-        <figure><img src="sylt-2.jpg" alt="Impression von unserer Hochzeit auf Sylt" loading="lazy"></figure>
-        <figure><img src="sylt-3.jpg" alt="Impression von unserer Hochzeit auf Sylt" loading="lazy"></figure>
-        <figure><img src="sylt-4.jpg" alt="Impression von unserer Hochzeit auf Sylt" loading="lazy"></figure>
-    </div>
-    <p class="note">Zum Vergrößern auf ein Bild tippen.</p>
-</section>
-
-<!-- Bildvergrößerung -->
-<div id="lightbox" hidden>
-    <button id="lightbox-close" aria-label="Schließen">&times;</button>
-    <button class="lightbox-nav" id="lightbox-prev" aria-label="Vorheriges Bild">&#8249;</button>
-    <img id="lightbox-img" src="" alt="">
-    <button class="lightbox-nav" id="lightbox-next" aria-label="Nächstes Bild">&#8250;</button>
-</div>
-
-<!-- ============ ABLAUF ============ -->
-<section id="ablauf" class="content-section alt">
-    <p class="section-kicker">19. Dezember 2026</p>
-    <h2>Der Ablauf</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="time">16:30</span>
-            <div class="timeline-text">
-                <h3>Ankommen</h3>
-                <p>Plant für die Anfahrt etwas Puffer ein, am 19. Dezember ist Weihnachtsmarkt in Baden-Baden.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">17:00</span>
-            <div class="timeline-text">
-                <h3>Freie Trauung</h3>
-                <p>Wir geben uns das Ja-Wort. Wir fangen pünktlich an, seid also bitte vorher da.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">18:00</span>
-            <div class="timeline-text">
-                <h3>Anstoßen</h3>
-                <p>Drinks und kleine Snacks. Zeit, sich zu begrüßen und miteinander anzustoßen.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">19:30</span>
-            <div class="timeline-text">
-                <h3>Dinner</h3>
-                <p>Festliches Abendessen mit ein paar Reden.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">22:00</span>
-            <div class="timeline-text">
-                <h3>Party</h3>
-                <p>Die Tanzfläche ist frei und der DJ übernimmt. Ab jetzt fahren auch unsere Shuttles.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">03:30</span>
-            <div class="timeline-text">
-                <h3>Letzte Runde</h3>
-                <p>Die Bar macht Feierabend.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <span class="time">04:00</span>
-            <div class="timeline-text">
-                <h3>Musik aus</h3>
-                <p>Danach fahren die Shuttles, bis alle zu Hause sind.</p>
-            </div>
-        </div>
-    </div>
-    <p class="note">Kleine Änderungen sind noch möglich. Sobald alles final steht, findet ihr es hier.</p>
-</section>
-
-<!-- ============ ANREISE ============ -->
-<section id="anreise" class="content-section">
-    <p class="section-kicker">Location</p>
-    <h2>Anreise</h2>
-
-    <div class="cards">
-        <div class="card featured">
-            <span class="card-tag">Ihr müsst euch um nichts kümmern</span>
-            <h3>Wir bringen euch nach Hause</h3>
-            <p>Ab 22:00 Uhr fahren zwei Neunsitzer, mehrmals über die Nacht, bis alle zu Hause sind. Angefahren werden <strong>Bühl, Bühlertal und der Großraum Baden-Baden</strong>. Ihr müsst euch auf keine Uhrzeit festlegen.</p>
-            <p>Kommt also gerne ohne Auto, dann könnt ihr den Abend unbekümmert genießen. Wer es noch bequemer haben möchte oder von weiter weg kommt, nimmt sich am besten ein Hotel in Baden-Baden.</p>
-            <p class="card-hint">Sagt uns bei eurer Anmeldung Bescheid, ob und wohin ihr mitfahren möchtet.</p>
-        </div>
-        <div class="card">
-            <h3>Rive Gauche</h3>
-            <address class="adresse">
-                Lichtentaler Allee 8<br>
-                76530 Baden-Baden
-            </address>
-            <p>Mitten im Zentrum, direkt an der Lichtentaler Allee.</p>
-            <div class="map-links">
-                <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Lichtentaler+Allee+8%2C+76530+Baden-Baden" target="_blank" rel="noopener">Google Maps</a>
-                <a class="link-arrow" href="https://maps.apple.com/?address=Lichtentaler%20Allee%208,%2076530%20Baden-Baden" target="_blank" rel="noopener">Apple Karten</a>
-            </div>
-        </div>
-        <div class="card">
-            <h3>Hinkommen</h3>
-            <p>Der Bahnhof Baden-Baden liegt an der ICE-Strecke, von dort fahren Busse und Taxis in die Innenstadt. Mit dem Auto geht es über die A5. An der Location gibt es keine eigenen Parkplätze, in der Innenstadt aber mehrere Parkhäuser. Plant an dem Abend etwas Puffer ein, der Weihnachtsmarkt sorgt für Betrieb.</p>
-        </div>
-        <div class="card">
-            <h3>Übernachten</h3>
-            <p>Am schönsten ist ein Hotel in Baden-Baden: Ihr müsst nachts nirgendwo hin und habt am nächsten Tag noch etwas von der Stadt. Rund um die Innenstadt gibt es Häuser in jeder Preisklasse, viele in Laufweite zur Location. Bucht früh, im Advent ist hier einiges los.</p>
-        </div>
-        <div class="card" id="wetter-karte">
-            <h3>Wetter in Baden-Baden</h3>
-            <div id="wetter-widget">
-                <div class="wetter-zeile">
-                    <span class="wetter-icon" id="wetter-icon">·</span>
-                    <div>
-                        <span class="wetter-temp" id="wetter-temp">wird geladen …</span>
-                        <span class="wetter-text" id="wetter-text"></span>
-                    </div>
-                </div>
-                <p class="wetter-meta" id="wetter-meta"></p>
-            </div>
-            <p>Im Dezember ist es kalt und oft feucht, meist um den Gefrierpunkt. Denkt an einen warmen Mantel.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section id="faq" class="content-section alt">
-    <p class="section-kicker">Gut zu wissen</p>
-    <h2>Fragen &amp; Antworten</h2>
-
-    <div class="faq-list">
-        <details>
-            <summary>Wann sollen wir da sein?</summary>
-            <p>Wir bitten euch um 16:30 Uhr ins Rive Gauche. Die Trauung beginnt um 17:00 Uhr, und zwar pünktlich. Plant für die Anfahrt genug Zeit ein, wegen des Weihnachtsmarkts ist in der Innenstadt viel los.</p>
-        </details>
-        <details>
-            <summary>Wann und wo finden Trauung und Feier statt?</summary>
-            <p>Wir feiern am 19. Dezember 2026 im Rive Gauche, Lichtentaler Allee 8, 76530 Baden-Baden. Trauung und Feier sind am selben Ort, ihr müsst zwischendurch also nirgendwo hin.</p>
-        </details>
-        <details>
-            <summary>Wo können wir parken?</summary>
-            <p>An der Location selbst gibt es keine Parkplätze, in der Innenstadt aber mehrere Parkhäuser. Am einfachsten kommt ihr mit dem Taxi, der Bahn oder in einer Fahrgemeinschaft. Wer ein Hotel in der Nähe bucht, hat es am entspanntesten.</p>
-        </details>
-        <details>
-            <summary>Gibt es einen Shuttle nach Hause?</summary>
-            <p>Ja. Ab 22:00 Uhr fahren zwei Neunsitzer mehrmals über die Nacht und bringen euch nach Bühl, Bühlertal und in den Großraum Baden-Baden. Sie fahren, bis alle zu Hause sind, ihr müsst euch also nicht auf eine Uhrzeit festlegen. Bitte gebt bei der Anmeldung an, ob und wohin ihr mitfahren möchtet. Wer von weiter weg kommt, nimmt sich am besten ein Hotel in Baden-Baden oder ein Taxi.</p>
-        </details>
-        <details>
-            <summary>Gibt es einen Dresscode?</summary>
-            <p>Wir wünschen uns festliche, schicke Abendgarderobe. Kommt in dem, worin ihr euch wohlfühlt und worin ihr tanzen könnt.</p>
-        </details>
-        <details>
-            <summary>Wie sieht es mit Übernachtungsmöglichkeiten aus?</summary>
-            <p>Wir empfehlen euch, ein Hotel zu buchen: Ihr müsst nachts nirgendwo hin und habt am nächsten Tag noch etwas von der Stadt. Rund um die Innenstadt gibt es Hotels in jeder Preisklasse, viele davon in Laufweite zur Location. Bucht früh, im Advent ist hier viel los.</p>
-        </details>
-        <details>
-            <summary>Wie lange wird gefeiert?</summary>
-            <p>Um 3:30 Uhr ist letzte Runde an der Bar, um 4:00 Uhr geht die Musik aus.</p>
-        </details>
-        <details>
-            <summary>Was läuft musikalisch?</summary>
-            <p>Ab 22:00 Uhr legt ein DJ auf. Wir haben lange gesucht und einen richtig guten gefunden.</p>
-        </details>
-        <details>
-            <summary>Was ist mit Hochzeitsgeschenken?</summary>
-            <p>Eure Anwesenheit ist das schönste Geschenk für uns! Solltet ihr uns dennoch etwas schenken wollen, unterstützt ihr damit gerne unsere gemeinsamen Zukunftspläne und die Flitterwochen.</p>
-        </details>
-        <details>
-            <summary>Wir möchten ein paar Worte an euch richten – geht das?</summary>
-            <p>Der Abend hat einen festen Rahmen, und wir möchten niemanden dazu drängen, sich etwas zu überlegen. Wenn ihr trotzdem etwas sagen möchtet, sprecht vorher mit unseren Trauzeugen <strong>Isabell</strong> und <strong>Stefan</strong>. Die beiden kennen den Ablauf und sagen euch, ob und wann es passt.</p>
-        </details>
-        <details>
-            <summary>Sind Kinder auf der Hochzeit eingeladen?</summary>
-            <p>Wir wünschen uns eine Feier, bei der die Erwachsenen einmal ganz in Ruhe tanzen können. Daher sind die Kinder an diesem Abend bei ihren Babysittern in besten Händen.</p>
-        </details>
-        <details>
-            <summary>Gibt es etwas bezüglich Allergien oder Unverträglichkeiten?</summary>
-            <p>Bitte gebt Unverträglichkeiten oder besondere Ernährungswünsche direkt bei der Anmeldung mit an, damit die Küche sich darauf einstellen kann.</p>
-        </details>
-    </div>
-</section>
-
-<!-- ============ CTA ============ -->
-<section class="cta-band">
-    <h2>Seid ihr dabei?</h2>
-    <p>Wir freuen uns über eure Rückmeldung bis zum 31. Oktober 2026.</p>
-    <a href="rsvp.html" class="btn-hero">Zur Rückmeldung</a>
-</section>
-
-<footer class="site-footer">
-    <p class="footer-names">Anna &amp; Maik</p>
-    <p>19. Dezember 2026 · Rive Gauche · Lichtentaler Allee 8 · Baden-Baden</p>
-</footer>
 
 <script>
-    /* =========================================================
-       INTRO: Umschlag-Animation
-       ========================================================= */
-    const introOverlay = document.getElementById('intro-overlay');
-    const introVideo   = document.getElementById('intro-video');
-    const sealButton   = document.getElementById('seal-button');
-    const introHint    = document.getElementById('intro-hint');
-    const introSkip    = document.getElementById('intro-skip');
-    const heroVideo    = document.getElementById('hero-video');
-
-    let introFertig = false;
-
-    /* Hero-Video starten (läuft einmal, bleibt dann auf dem letzten Bild stehen) */
-    function heroVideoStarten() {
-        if (!heroVideo) return;
-        heroVideo.play().catch(() => {
-            // Autoplay blockiert – beim ersten Tippen erneut versuchen.
-            document.addEventListener('touchstart', () => heroVideo.play().catch(() => {}), { once: true });
-            document.addEventListener('click',      () => heroVideo.play().catch(() => {}), { once: true });
-        });
+    var ziel = new Date(2026, 11, 19).getTime();
+    var tage = Math.ceil((ziel - Date.now()) / 86400000);
+    if (tage > 0) {
+        document.getElementById('tage').innerHTML =
+            'Noch <strong>' + tage + '</strong> ' + (tage === 1 ? 'Tag' : 'Tage');
     }
-
-    /* Unscharfer Hintergrund: eine winzige Kopie des Videos wird auf ein Canvas
-       gezeichnet und per CSS grossgezogen und weichgezeichnet. So fuellt das
-       Hochformat-Video auch breite Bildschirme, ohne ein zweites Mal zu laden. */
-    const ambient = document.getElementById('hero-ambient');
-    const actx = ambient ? ambient.getContext('2d') : null;
-    let ambientTimer = null;
-
-    function ambientZeichnen() {
-        if (!actx || heroVideo.readyState < 2) return;
-        try { actx.drawImage(heroVideo, 0, 0, ambient.width, ambient.height); } catch (e) {}
-    }
-
-    if (heroVideo) {
-        heroVideo.addEventListener('loadeddata', ambientZeichnen);
-        heroVideo.addEventListener('playing', () => {
-            clearInterval(ambientTimer);
-            ambientTimer = setInterval(ambientZeichnen, 80);   // ca. 12 Bilder/Sek., sehr sparsam
-        });
-        heroVideo.addEventListener('ended', () => {
-            heroVideo.pause();                                  // letztes Bild einfrieren
-            clearInterval(ambientTimer);
-            ambientZeichnen();                                  // Farben des Standbilds uebernehmen
-        });
-        heroVideo.addEventListener('error', () => heroVideo.classList.add('video-failed'));
-    }
-
-    /* Intro schließen und Website freigeben */
-    function introBeenden() {
-        if (introFertig) return;
-        introFertig = true;
-        introOverlay.classList.add('fade-out');
-        document.body.classList.remove('intro-locked');
-        heroVideoStarten();
-        setTimeout(() => { introOverlay.style.display = 'none'; }, 1000);
-    }
-
-    /* Animation starten */
-    function introStarten() {
-        if (heroVideo) heroVideo.load();                // Hero-Video im Hintergrund vorladen
-
-        if (introKaputt) { introBeenden(); return; }    // kein Video da: direkt zur Seite
-
-        introOverlay.classList.add('playing');          // Siegel-Ring und Hinweis ausblenden
-        introVideo.play().catch(() => introBeenden());  // klappt das nicht, direkt weiter
-    }
-
-    /* Laesst sich das Video nicht laden, bleibt das Siegelbild stehen und
-       der Klick fuehrt einfach zur Seite. Das Intro verschwindet also nicht
-       mehr von selbst, bevor jemand ueberhaupt geklickt hat. */
-    let introKaputt = false;
-    introVideo.addEventListener('error', () => { introKaputt = true; });
-    introVideo.querySelector('source').addEventListener('error', () => { introKaputt = true; });
-
-    sealButton.addEventListener('click', introStarten);
-    introSkip.addEventListener('click', e => { e.stopPropagation(); introBeenden(); });
-    introVideo.addEventListener('ended', introBeenden);
-
-    /* Notbremse: bleibt das Video haengen, nach Videolaenge + 4 s weiter */
-    introVideo.addEventListener('play', () => {
-        const dauer = isFinite(introVideo.duration) ? introVideo.duration * 1000 : 30000;
-        setTimeout(introBeenden, dauer + 4000);
-    });
-
-    /* ---------- Mobile-Menü ---------- */
-    const overlay = document.getElementById('navOverlay');
-    const burger  = document.getElementById('burger');
-
-    function toggleMenu() {
-        const open = overlay.classList.toggle('active');
-        burger.setAttribute('aria-expanded', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-    }
-    burger.addEventListener('click', toggleMenu);
-    document.getElementById('closeBtn').addEventListener('click', toggleMenu);
-    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
-
-    /* ---------- Navbar-Hintergrund beim Scrollen ---------- */
-    const navbar = document.getElementById('navbar');
-    function onScroll() {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    /* ---------- Countdown mit drei Zustaenden ----------
-       1. bis 19.12.2026, 00:00  -> laufender Countdown
-       2. 19.12. 00:00 bis 20.12. 05:00 -> "Heute ist es soweit" mit den
-          wichtigsten Eckdaten und Routen-Link fuers Handy
-       3. danach -> Dankesnachricht
-       ---------------------------------------------------- */
-    const tagBeginn  = new Date(2026, 11, 19, 0, 0, 0).getTime();   // 19.12.2026, 00:00
-    const tagEnde    = new Date(2026, 11, 20, 5, 0, 0).getTime();   // 20.12.2026, 05:00
-
-    const stateCountdown = document.getElementById('state-countdown');
-    const stateHeute     = document.getElementById('state-heute');
-    const stateDanach    = document.getElementById('state-danach');
-
-    const pad = n => String(n).padStart(2, '0');
-    let timerId = null;
-
-    function zustandSetzen(aktiv) {
-        stateCountdown.hidden = aktiv !== 'countdown';
-        stateHeute.hidden     = aktiv !== 'heute';
-        stateDanach.hidden    = aktiv !== 'danach';
-    }
-
-    function updateTimer() {
-        const jetzt = Date.now();
-
-        if (jetzt >= tagEnde)   { zustandSetzen('danach'); clearInterval(timerId); return; }
-        if (jetzt >= tagBeginn) { zustandSetzen('heute');  return; }
-
-        zustandSetzen('countdown');
-        const distance = tagBeginn - jetzt;
-        document.getElementById('days').innerText    = Math.floor(distance / 86400000);
-        document.getElementById('hours').innerText   = pad(Math.floor((distance % 86400000) / 3600000));
-        document.getElementById('minutes').innerText = pad(Math.floor((distance % 3600000) / 60000));
-        document.getElementById('seconds').innerText = pad(Math.floor((distance % 60000) / 1000));
-    }
-    updateTimer();
-    timerId = setInterval(updateTimer, 1000);
-
-    /* ---------- Galerie ---------- */
-    const galerie  = document.getElementById('galerie');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg    = document.getElementById('lightbox-img');
-    let aktuell = 0;
-
-    /* Fehlende Bilder still entfernen */
-    galerie.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', () => img.closest('figure').remove());
-    });
-
-    const bilder = () => Array.from(galerie.querySelectorAll('img'));
-
-    function lightboxOeffnen(index) {
-        const liste = bilder();
-        if (!liste.length) return;
-        aktuell = (index + liste.length) % liste.length;
-        lbImg.src = liste[aktuell].src;
-        lbImg.alt = liste[aktuell].alt;
-        lightbox.hidden = false;
-        document.body.style.overflow = 'hidden';
-    }
-    function lightboxSchliessen() {
-        lightbox.hidden = true;
-        document.body.style.overflow = '';
-    }
-
-    galerie.addEventListener('click', e => {
-        const img = e.target.closest('img');
-        if (img) lightboxOeffnen(bilder().indexOf(img));
-    });
-
-    document.getElementById('lightbox-close').addEventListener('click', lightboxSchliessen);
-    document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); lightboxOeffnen(aktuell - 1); });
-    document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); lightboxOeffnen(aktuell + 1); });
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightboxSchliessen(); });
-
-    document.addEventListener('keydown', e => {
-        if (lightbox.hidden) return;
-        if (e.key === 'Escape')     lightboxSchliessen();
-        if (e.key === 'ArrowLeft')  lightboxOeffnen(aktuell - 1);
-        if (e.key === 'ArrowRight') lightboxOeffnen(aktuell + 1);
-    });
-
-    /* ---------- Wetter-Widget (Open-Meteo, kein API-Schluessel noetig) ----------
-       Wetter-Vorhersagen reichen nur rund 16 Tage in die Zukunft. Deshalb:
-       Liegt die Hochzeit noch weiter weg, zeigen wir das aktuelle Wetter in
-       Baden-Baden. Ab etwa zwei Wochen vorher schaltet das Widget automatisch
-       auf die Vorhersage fuer den 19. Dezember um.
-       ---------------------------------------------------------------------- */
-    (function wetter() {
-        const el = {
-            icon: document.getElementById('wetter-icon'),
-            temp: document.getElementById('wetter-temp'),
-            text: document.getElementById('wetter-text'),
-            meta: document.getElementById('wetter-meta'),
-            box:  document.getElementById('wetter-widget')
-        };
-        if (!el.box) return;
-
-        /* WMO-Wettercodes in Worte und Symbole uebersetzen */
-        const codes = {
-            0:['Klarer Himmel','☀'], 1:['Überwiegend klar','🌤'], 2:['Teilweise bewölkt','⛅'],
-            3:['Bedeckt','☁'], 45:['Nebel','🌫'], 48:['Reifnebel','🌫'],
-            51:['Leichter Nieselregen','🌦'], 53:['Nieselregen','🌦'], 55:['Starker Nieselregen','🌧'],
-            56:['Gefrierender Niesel','🌧'], 57:['Gefrierender Niesel','🌧'],
-            61:['Leichter Regen','🌦'], 63:['Regen','🌧'], 65:['Starker Regen','🌧'],
-            66:['Gefrierender Regen','🌧'], 67:['Gefrierender Regen','🌧'],
-            71:['Leichter Schneefall','🌨'], 73:['Schneefall','🌨'], 75:['Starker Schneefall','❄'],
-            77:['Schneegriesel','🌨'], 80:['Regenschauer','🌦'], 81:['Regenschauer','🌧'],
-            82:['Kräftige Schauer','🌧'], 85:['Schneeschauer','🌨'], 86:['Schneeschauer','🌨'],
-            95:['Gewitter','⛈'], 96:['Gewitter mit Hagel','⛈'], 99:['Gewitter mit Hagel','⛈']
-        };
-        const beschreibung = c => (codes[c] || ['Wechselhaft','🌥']);
-
-        const hochzeit = new Date(2026, 11, 19);
-        const tageBis  = Math.ceil((hochzeit - new Date()) / 86400000);
-        const vorhersageMoeglich = tageBis >= 0 && tageBis <= 14;
-
-        const basis = 'https://api.open-meteo.com/v1/forecast?latitude=48.7606&longitude=8.2396&timezone=Europe%2FBerlin';
-        const url = vorhersageMoeglich
-            ? basis + '&daily=weather_code,temperature_2m_max,temperature_2m_min&start_date=2026-12-19&end_date=2026-12-19'
-            : basis + '&current=temperature_2m,weather_code';
-
-        fetch(url)
-            .then(r => r.ok ? r.json() : Promise.reject())
-            .then(d => {
-                if (vorhersageMoeglich && d.daily) {
-                    const [txt, icon] = beschreibung(d.daily.weather_code[0]);
-                    el.icon.textContent = icon;
-                    el.temp.textContent = Math.round(d.daily.temperature_2m_min[0]) + '° bis ' + Math.round(d.daily.temperature_2m_max[0]) + '°';
-                    el.text.textContent = txt;
-                    el.meta.textContent = 'Vorhersage für den 19. Dezember';
-                } else if (d.current) {
-                    const [txt, icon] = beschreibung(d.current.weather_code);
-                    el.icon.textContent = icon;
-                    el.temp.textContent = Math.round(d.current.temperature_2m) + '°';
-                    el.text.textContent = txt;
-                    el.meta.textContent = 'Gerade eben in Baden-Baden · Vorhersage für den Hochzeitstag ab Anfang Dezember';
-                } else {
-                    throw new Error();
-                }
-            })
-            .catch(() => { el.box.style.display = 'none'; });   // ohne Netz einfach ausblenden
-    })();
-
-    /* ---------- Sanftes Einblenden der Sektionen ---------- */
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.content-section, .cta-band').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 </script>
 </body>
 </html>
