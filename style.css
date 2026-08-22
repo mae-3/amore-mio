@@ -425,6 +425,10 @@ body.intro-locked {
             rgba(0,0,0,0.45) 62%,
             rgba(0,0,0,0.82) 100%);
     }
+
+    /* Datum in zwei bewusst gesetzten Zeilen statt mit Zufallsumbruch */
+    .date span { display: block; }
+    .date .date-punkt { display: none; }
 }
 
 .hero-overlay {
