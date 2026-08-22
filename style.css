@@ -110,18 +110,15 @@ body.intro-locked { overflow: hidden; }
    max(100vw, 56.25vh) und die Höhe max(177.78vw, 100vh).
    Daraus ergeben sich Größe und Versatz unten.
 
-   FEINJUSTIERUNG: Die Zahl hinter "left" schiebt nach rechts.
-   Für eine Verschiebung nach unten "top: 50%" ersetzen durch
-   calc(50% + max(1.07vw, 0.60vh)) – das entspricht 1 % nach
-   unten; für nach oben ein Minus statt des Plus.
-   Beide Zeilen kommen weiter unten im Media-Query-Block noch
-   einmal vor, dort mit min() statt max(). Ändere sie immer an
-   beiden Stellen, sonst stimmt es nur auf einem Format.
+   ACHTUNG: Position und Größe werden per JavaScript gesetzt,
+   siehe SIEGEL_X, SIEGEL_Y und SIEGEL_D in index.html. Die
+   Werte hier sind nur ein Notbehelf, falls JavaScript
+   ausfällt. Zum Justieren also nicht hier ändern.
    --------------------------------------------------------- */
 #seal-button {
     position: absolute;
     top:  50%;
-    left: calc(50% + max(5.50vw, 3.09vh));
+    left: 54%;
     transform: translate(-50%, -50%);
     width:  max(62.5vw, 35.2vh);
     height: max(62.5vw, 35.2vh);
@@ -211,8 +208,6 @@ body.intro-locked { overflow: hidden; }
     #intro-video { object-fit: contain; }
 
     #seal-button {
-        top:  50%;
-        left: calc(50% + min(5.50vw, 3.09vh));
         width:  min(62.5vw, 35.2vh);
         height: min(62.5vw, 35.2vh);
     }
