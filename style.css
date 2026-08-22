@@ -77,7 +77,17 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: 0.01em
    41 % der gerenderten Breite = max(41vw, 32.8vh).
    Videoformat: 4:5 (hochkant).
    ========================================================= */
-body.intro-locked { overflow: hidden; }
+/* Scrollsperre. Auf dem iPhone reicht overflow:hidden nicht aus – erst
+   position:fixed verhindert zuverlässig, dass die Seite unter dem Intro
+   wegscrollt und dabei oben angeschnitten wirkt. */
+body.intro-locked {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 #intro-overlay {
     position: fixed;
@@ -342,8 +352,9 @@ body.intro-locked { overflow: hidden; }
     min-height: 560px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;      /* Text im unteren Drittel – auf allen Geräten gleich */
     align-items: center;
+    padding-bottom: 13vh;
     text-align: center;
     color: #fff;
     overflow: hidden;
@@ -402,6 +413,18 @@ body.intro-locked { overflow: hidden; }
 @media (max-aspect-ratio: 10/16) {
     .hero-video { object-fit: cover; }
     .hero-ambient, .hero-media::before { display: none; }
+
+    /* Auf dem Handy füllt das Video die gesamte Fläche, der Text liegt also
+       direkt auf der Szene. Deshalb hier ein kräftigerer Verlauf nach unten,
+       damit die Schrift auf hellen Bildinhalten lesbar bleibt. Am Desktop
+       liegt der Text auf dem unscharfen Rand und braucht das nicht. */
+    .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(0,0,0,0.40) 0%,
+            rgba(0,0,0,0.14) 30%,
+            rgba(0,0,0,0.45) 62%,
+            rgba(0,0,0,0.82) 100%);
+    }
 }
 
 .hero-overlay {
@@ -412,12 +435,6 @@ body.intro-locked { overflow: hidden; }
 }
 
 .hero-content { position: relative; z-index: 2; padding: 0 20px; }
-
-/* Auf breiten Bildschirmen steht der Text im unteren Drittel,
-   damit er nicht ueber euren Gesichtern liegt. */
-@media (min-aspect-ratio: 10/16) {
-    .hero { justify-content: flex-end; padding-bottom: 13vh; }
-}
 
 .eyebrow {
     font-size: 0.75rem;
@@ -1071,7 +1088,7 @@ details p {
     .desktop-nav { display: none; }
     .burger { display: flex; }
 
-    .hero { height: 78vh; min-height: 460px; }
+    .hero { height: 78vh; min-height: 460px; padding-bottom: 10vh; }
     .content-section { padding: 70px 20px; }
     #countdown-section { padding: 56px 16px; }
     .countdown-grid { gap: 8px; max-width: 420px; }
