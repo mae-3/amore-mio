@@ -99,16 +99,32 @@ body.intro-locked { overflow: hidden; }
     display: block;
 }
 
-/* Klickfläche direkt auf dem Siegel */
+/* ---------------------------------------------------------
+   Klickfläche direkt auf dem Siegel
+   ---------------------------------------------------------
+   Video: 720 × 1280 (9:16). Das Siegel darin sitzt bei
+   55,5 % der Breite und genau auf halber Höhe, sein
+   Durchmesser beträgt 62,5 % der Breite.
+
+   Bei object-fit: cover ist die dargestellte Videobreite
+   max(100vw, 56.25vh) und die Höhe max(177.78vw, 100vh).
+   Daraus ergeben sich Größe und Versatz unten.
+
+   FEINJUSTIERUNG: Die Zahl hinter "left" schiebt nach rechts.
+   Für eine Verschiebung nach unten "top: 50%" ersetzen durch
+   calc(50% + max(1.07vw, 0.60vh)) – das entspricht 1 % nach
+   unten; für nach oben ein Minus statt des Plus.
+   Beide Zeilen kommen weiter unten im Media-Query-Block noch
+   einmal vor, dort mit min() statt max(). Ändere sie immer an
+   beiden Stellen, sonst stimmt es nur auf einem Format.
+   --------------------------------------------------------- */
 #seal-button {
     position: absolute;
-    top: 51%;
-    left: 50%;
+    top:  50%;
+    left: calc(50% + max(5.50vw, 3.09vh));
     transform: translate(-50%, -50%);
-    width: max(41vw, 32.8vh);
-    height: max(41vw, 32.8vh);
-    max-width: 78vw;
-    max-height: 78vw;
+    width:  max(62.5vw, 35.2vh);
+    height: max(62.5vw, 35.2vh);
     border: 0;
     border-radius: 50%;
     background: transparent;
@@ -121,7 +137,7 @@ body.intro-locked { overflow: hidden; }
 /* Pulsierender Ring als Hinweis */
 .seal-ring {
     position: absolute;
-    inset: -6%;
+    inset: -4%;
     border-radius: 50%;
     border: 2px solid rgba(197,160,89,0.85);
     box-shadow: 0 0 24px rgba(197,160,89,0.45);
@@ -185,6 +201,21 @@ body.intro-locked { overflow: hidden; }
 #intro-overlay.playing #intro-hint {
     opacity: 0;
     pointer-events: none;
+}
+
+/* Auf breiten Bildschirmen wird das hochkante Intro-Video sonst extrem
+   herangezoomt. Dort zeigen wir es vollständig, der cremefarbene
+   Hintergrund füllt die Ränder. Die Ringgeometrie kehrt sich dabei
+   von max() auf min() um. */
+@media (min-aspect-ratio: 10/16) {
+    #intro-video { object-fit: contain; }
+
+    #seal-button {
+        top:  50%;
+        left: calc(50% + min(5.50vw, 3.09vh));
+        width:  min(62.5vw, 35.2vh);
+        height: min(62.5vw, 35.2vh);
+    }
 }
 
 /* =========================================================
@@ -416,6 +447,34 @@ body.intro-locked { overflow: hidden; }
     text-transform: uppercase;
     margin-top: 22px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* Knopf zum erneuten Abspielen des Hero-Videos */
+.hero-replay {
+    position: absolute;
+    right: 22px;
+    bottom: 26px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 50%;
+    background: rgba(0,0,0,0.22);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+    padding: 0;
+}
+.hero-replay:hover { opacity: 1; border-color: var(--gold); }
+
+@media (max-width: 860px) {
+    .hero-replay { right: 16px; bottom: 18px; width: 36px; height: 36px; }
 }
 
 /* Scroll-Pfeil */
