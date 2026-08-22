@@ -1,2 +1,9 @@
+# Diese Datei darf das Crawlen NICHT verbieten.
+#
+# Die Seiten tragen im <head> ein noindex-Tag. Damit Google dieses Tag
+# lesen und die Seite aus dem Index nehmen kann, muss der Crawler die
+# Seite aufrufen duerfen. Ein "Disallow: /" wuerde genau das verhindern
+# und die Seite bliebe dauerhaft in den Suchergebnissen stehen.
+
 User-agent: *
-Disallow: /
+Allow: /

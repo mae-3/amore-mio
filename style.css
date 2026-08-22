@@ -169,12 +169,22 @@ body.intro-locked { overflow: hidden; }
 }
 #intro-skip:hover { color: var(--gold); }
 
-/* Während das Video läuft: Ring und Hinweis ausblenden */
+/* Ring und Hinweis erscheinen erst, wenn das Siegelbild geladen ist */
+#seal-button,
+#intro-hint {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+#intro-overlay.bereit #seal-button,
+#intro-overlay.bereit #intro-hint {
+    opacity: 1;
+}
+
+/* Während das Video läuft: Ring und Hinweis wieder ausblenden */
 #intro-overlay.playing #seal-button,
 #intro-overlay.playing #intro-hint {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s ease;
 }
 
 /* =========================================================
