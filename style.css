@@ -465,12 +465,16 @@ body.intro-locked {
     text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
-/* Knopf zum erneuten Abspielen des Hero-Videos */
-.hero-replay {
+/* Kleine Knöpfe unten rechts im Hero: Ton an/aus und erneut abspielen */
+.hero-buttons {
     position: absolute;
     right: 22px;
     bottom: 26px;
     z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+.hero-btn {
     width: 40px;
     height: 40px;
     display: flex;
@@ -487,10 +491,18 @@ body.intro-locked {
     transition: opacity 0.3s ease, border-color 0.3s ease;
     padding: 0;
 }
-.hero-replay:hover { opacity: 1; border-color: var(--gold); }
+.hero-btn:hover { opacity: 1; border-color: var(--gold); }
+
+/* Lautsprechersymbol umschalten: ohne Klasse "an" zeigt es den stummen
+   Zustand, mit Klasse "an" den tönenden. */
+.hero-btn .ikon-laut  { display: none; }
+.hero-btn.an .ikon-stumm { display: none; }
+.hero-btn.an .ikon-laut  { display: block; }
+.hero-btn.an { opacity: 0.85; border-color: var(--gold); }
 
 @media (max-width: 860px) {
-    .hero-replay { right: 16px; bottom: 18px; width: 36px; height: 36px; }
+    .hero-buttons { right: 16px; bottom: 18px; gap: 8px; }
+    .hero-btn { width: 36px; height: 36px; }
 }
 
 /* Scroll-Pfeil */
