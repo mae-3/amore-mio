@@ -819,6 +819,22 @@ body.intro-locked {
 .card p:last-child { margin-bottom: 0; }
 .card strong { color: var(--ink); font-weight: 500; }
 
+/* Wetter-Karte: Ab Tablet-Breite über die volle Breite, damit sie nicht
+   allein und linksbündig in der letzten Rasterzeile steht. Innen liegen
+   Widget und Text dann nebeneinander, sonst wirkt die Fläche leer.
+   Auf dem Handy bleibt alles untereinander wie bisher. */
+@media (min-width: 861px) {
+    #wetter-karte { grid-column: 1 / -1; }
+    #wetter-karte .wetter-inhalt {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 28px;
+        align-items: center;
+    }
+    #wetter-karte #wetter-widget { margin-bottom: 0; }
+    #wetter-karte .wetter-inhalt > p { margin: 0; }
+}
+
 /* Wetter-Widget */
 #wetter-widget {
     background: var(--cream);
