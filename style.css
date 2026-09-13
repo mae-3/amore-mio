@@ -723,6 +723,17 @@ body.intro-locked {
 }
 .btn-hero:hover { background-color: var(--gold-dark); transform: translateY(-2px); }
 
+/* Hinweis auf die Rückmeldefrist unter dem Knopf – bewusst zurückhaltend.
+   Bewusst nur hier, damit die Frist im dunklen Aufrufband und über dem
+   Formular ihre dortige Formatierung behält. Alle Hinweise mit der Klasse
+   "frist" verschwinden ab dem 1.11.2026 von selbst (siehe index.html). */
+#countdown-section .frist {
+    margin: 16px 0 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
 .adresse {
     font-style: normal;
     font-family: var(--serif);
