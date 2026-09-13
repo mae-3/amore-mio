@@ -746,50 +746,46 @@ body.intro-locked {
 .link-arrow:hover { color: var(--gold-dark); }
 
 /* =========================================================
-   TIMELINE (ABLAUF)
+   PROGRAMMKARTE (ABLAUF)
+   ---------------------------------------------------------
+   Bewusst eine schmale, zentrierte Karte statt einer breiten
+   Liste: Ohne Beschreibungstexte wirkt eine volle Seitenbreite
+   leer. Als abgegrenzte Karte auf dem cremefarbenen Grund
+   wirkt dieselbe Information gewollt – wie eine gedruckte
+   Ablaufkarte. Auf dem Handy ändert sich nur der Innenabstand.
    ========================================================= */
-.timeline {
-    max-width: 620px;
-    margin: 0 auto;
-    text-align: left;
-    position: relative;
+.programm {
+    max-width: 430px;
+    margin: 6px auto 0;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 10px 40px;
+    text-align: center;
 }
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 86px;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: var(--line);
+.programm-eintrag {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
 }
-.timeline-item {
-    display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 32px;
-    padding: 18px 0;
-    position: relative;
-}
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 82px;
-    top: 30px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--gold);
-}
-.time {
+.programm-eintrag:last-child { border-bottom: 0; }
+
+.programm-zeit {
+    display: block;
     font-family: var(--serif);
-    font-size: 1.15rem;
+    font-size: 1.6rem;
+    line-height: 1;
     color: var(--gold);
-    text-align: right;
-    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
 }
-.timeline-text { padding-left: 18px; }
-.timeline-text h3 { margin: 0 0 4px; font-size: 1.15rem; }
-.timeline-text p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+.programm-eintrag h3 {
+    margin: 10px 0 0;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
 
 /* =========================================================
    KARTEN (ANREISE)
@@ -1098,10 +1094,9 @@ details p {
     .countdown-grid { gap: 8px; max-width: 420px; }
     .timer-box { padding: 16px 4px; }
 
-    .timeline::before { left: 62px; }
-    .timeline-item { grid-template-columns: 56px 1fr; gap: 18px; }
-    .timeline-item::before { left: 58px; }
-    .timeline-text { padding-left: 14px; }
+    .programm { padding: 6px 24px; }
+    .programm-eintrag { padding: 20px 0; }
+    .programm-zeit { font-size: 1.45rem; }
 
     .cta-band { padding: 80px 20px; }
     .form-section { padding: 50px 20px 80px; }
