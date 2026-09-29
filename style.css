@@ -51,6 +51,54 @@
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
+/* =========================================================
+   SPRACHUMSCHALTUNG
+   ---------------------------------------------------------
+   Beide Sprachfassungen stehen in derselben Datei direkt
+   untereinander. Ausgeblendet wird über das Attribut
+   data-sprache am html-Element. Die Auswahl setzt ein
+   kleines Skript im Kopfbereich, noch bevor die Seite
+   aufgebaut wird – sonst blitzt kurz die falsche Sprache auf.
+   ========================================================= */
+[data-sprache="de"] .nur-en { display: none !important; }
+[data-sprache="en"] .nur-de { display: none !important; }
+
+.sprachwahl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+}
+.sprachwahl button {
+    background: none;
+    border: 0;
+    padding: 4px 2px;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+}
+.sprachwahl button:hover { opacity: 0.85; }
+.sprachwahl button[aria-current="true"] { opacity: 1; border-bottom: 1px solid currentColor; }
+.sprachwahl .trenner { opacity: 0.4; }
+
+/* In der Kopfzeile erbt der Umschalter die Farbe der Navigation */
+.desktop-nav .sprachwahl { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.45); }
+.navbar.scrolled .desktop-nav .sprachwahl { color: var(--ink); text-shadow: none; }
+
+/* Im Mobilmenü etwas größer und mittig */
+.nav-overlay .sprachwahl {
+    justify-content: center;
+    margin: 18px 0 0;
+    font-size: 0.85rem;
+    color: #fff;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-h);
@@ -1117,10 +1165,14 @@ details p {
 .danke-box a { color: var(--gold); }
 
 .simple-nav {
-    text-align: center;
-    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
     border-bottom: 1px solid var(--line);
 }
+.simple-nav .sprachwahl { color: var(--muted); margin-left: 0; }
 .simple-nav a {
     color: var(--muted);
     text-decoration: none;
